@@ -1,4 +1,4 @@
-package testcase;
+package testcases;
 
 import java.awt.AWTException;
 import java.util.Properties;
