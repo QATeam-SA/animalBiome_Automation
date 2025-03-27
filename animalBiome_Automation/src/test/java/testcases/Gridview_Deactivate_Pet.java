@@ -1,4 +1,4 @@
-package testcases;
+package testcase;
 
 import java.time.Duration;
 import java.util.Properties;
