@@ -667,3 +667,6 @@
 12:07:54.083 [main] INFO  testcase.Signin_Existinguser - ***** Log in successfully *******
 12:07:58.117 [main] INFO  testcase.My_Account_Register_Oralsample - Oral sample registration process has been started
 12:09:03.628 [main] INFO  testcase.My_Account_Register_Oralsample - Oral sample registration process has been completed
+15:48:34.077 [main] INFO  testcase.Signin_Existinguser - ***** pop up Accessed successfully *******
+15:48:37.996 [main] INFO  testcase.Signin_Existinguser - ***** Log in successfully *******
+15:50:20.685 [main] INFO  testcase.Share_Cat_Profile_Private - public cat profile is successfull

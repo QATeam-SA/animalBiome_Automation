@@ -90,7 +90,8 @@
 
 	<test thread-count="5" name="Share_pet_profile_4" enabled="true">
     <classes>
-    <class name="testcase.Share_Cat_Profile_Public"/>
+    <!--<class name="testcase.Share_Cat_Profile_Public"/>-->
+    <class name="testcase.Share_Cat_Profile_Private"/>
     </classes>
     </test>
     
