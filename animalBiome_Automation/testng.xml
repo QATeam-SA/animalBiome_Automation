@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="SignIn_Esistinguser">
+  <test thread-count="5" name="SignIn_Existinguser" enabled="true">
 		<classes>
 			<class name="testcase.Signin_Existinguser" />
 		</classes>
 	</test>
-	<test thread-count="5" name="ADD PET_1" enabled="true">
+	
+	<test thread-count="5" name="ADD PET_1" enabled="false">
 		<classes>
 			<class name="testcase.Dog_Img_Vet" />
-			<!--<class name="testcase.Dog_onlyImage" />
+			<class name="testcase.Dog_onlyImage" />
 			<class name="testcase.Dog_Vetdetails" />
-			<class name="testcase.AddDog_None" />-->
+			<class name="testcase.AddDog_None" />
 		</classes>
 	</test>
 	
@@ -43,8 +44,8 @@
 			<class name="testcase.DeleteGridview_DP" />
 			<class name="testcase.DeleteListview_DP" />
 		</classes>
-	</test> <!--
-	Deactivated_pet_5 -->
+	</test> 
+	Deactivated_pet_5 
 
 	<test thread-count="5" name="Registersample_Alongwith_Addpet_6" enabled="false">
 		<classes>
@@ -53,8 +54,8 @@
 			<class name="testcase.Register_Sample_Oral" />
 			<class name="testcase.My_Account_Register_Sample" />
 		</classes>
-	</test> <!--
-	Registersample_Alongwith_Addpet_6 -->
+	</test> 
+	Registersample_Alongwith_Addpet_6 
 
 	<test thread-count="5" name="Myaccount_UserProfile_8" enabled="false">
 		<classes>
@@ -62,9 +63,62 @@
 			<class name="testcase.My_Account_UserProfile_viewPet" />
 			<class name="testcase.My_Account_UserProfile_EditPet" />
 			<class name="testcase.My_Account_UserProfile_DeletePet" />
-		</classes> <!--
-		Myaccount_UserProfile_8 -->
+		</classes> 
 	</test>
 
+	<test thread-count="5" name="ADD_PET_1" enabled="true">
+		<classes>
+			<class name="testcase.Add_Pet_btn" />
+			<class name="testcase.Add_Cat_None" />
+			<class name="testcase.Cat_Img_VetDetails" />
+			<class name="testcase.Cat_only_Image" />
+			<class name="testcase.Cat_Vetdetails" />
+		</classes> 
+	</test>
+
+	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="false">
+    <classes>
+    <class name="testcase.Cat_View_AllReports"/>
+    </classes>
+    </test> 
+    
+    <test thread-count="5" name="EDIT PET_3" enabled="true">
+    <classes>
+     <class name="testcase.Edit_CatDetails"/>
+    </classes>
+    </test>
+
+	<test thread-count="5" name="Share_pet_profile_4" enabled="true">
+    <classes>
+    <class name="testcase.Share_Cat_Profile_Public"/>
+    </classes>
+    </test>
+    
+    <test thread-count="5" name="deactivatecatprofile_5" enabled="true" >
+    <classes>
+     <class name="testcase.Deactivate_Cat"/>
+    </classes>
+    </test>
+    
+    <test thread-count="5" name="Registersample_Addpet_6" enabled="true">
+		<classes>
+			<class name="testcase.RegisterSample_Addpet_Cat" />
+			<class name="testcase.Register_Sample_Cat_Gut" />
+			<class name="testcase.Register_Sample_Cat_Oral" />
+			<class name="testcase.My_Account_Register_Oralsample" />
+		</classes>
+	</test>
+    
+    <test thread-count="5" name="Myaccount_UserProfile_8" enabled="true" >
+    <classes>
+     <class name="testcase.Userprofile_assesments"/>
+     <class name="testcase.Userprofile_pswd"/>
+     <class name="testcase.List_Grid_views"/>
+     <class name="testcase.Userprofile_searchbtn"/>
+     <class name="testcase.Userprofile_addpet"/>
+     <class name="testcase.Userprofile_pagination"/>
+     <class name="testcase.Userprofile_gridview"/>
+    </classes>
+    </test>
 
 </suite> 

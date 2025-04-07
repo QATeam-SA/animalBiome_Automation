@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-07T12:07:27 IST" name="Suite" finished-at="2025-04-07T12:09:03 IST" duration-ms="96271">
+    <groups>
+    </groups>
+    <test started-at="2025-04-07T12:07:27 IST" name="SignIn_Existinguser" finished-at="2025-04-07T12:07:54 IST" duration-ms="26736">
+      <class name="testcase.Signin_Existinguser">
+        <test-method signature="login()[pri:2, instance:testcase.Signin_Existinguser@1d25c1c]" started-at="2025-04-07T12:07:27 IST" name="login" finished-at="2025-04-07T12:07:54 IST" duration-ms="26698" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- testcase.Signin_Existinguser -->
+    </test> <!-- SignIn_Existinguser -->
+    <test started-at="2025-04-07T12:07:54 IST" name="Registersample_Addpet_6" finished-at="2025-04-07T12:09:03 IST" duration-ms="69520">
+      <class name="testcase.My_Account_Register_Oralsample">
+        <test-method signature="myaacnt_register_oralsample()[pri:11, instance:testcase.My_Account_Register_Oralsample@5e1218b4]" started-at="2025-04-07T12:07:54 IST" name="myaacnt_register_oralsample" finished-at="2025-04-07T12:09:03 IST" duration-ms="69516" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- myaacnt_register_oralsample -->
+      </class> <!-- testcase.My_Account_Register_Oralsample -->
+    </test> <!-- Registersample_Addpet_6 -->
+  </suite> <!-- Suite -->
+</testng-results>
