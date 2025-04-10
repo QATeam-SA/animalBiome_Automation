@@ -119,6 +119,7 @@ public class Dog_Img_Vet {
 	private void PetHealthdetails(JavascriptExecutor js) throws InterruptedException {
 
 		logger.info("****Started added user dog health details****");
+
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Antibiotics"))).click();
 		Thread.sleep(2000);

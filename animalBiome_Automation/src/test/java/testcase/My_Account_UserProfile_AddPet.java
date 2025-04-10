@@ -291,7 +291,7 @@ public class My_Account_UserProfile_AddPet {
 					if (!s2.isMultiple() && !s2.getFirstSelectedOption().getText().equals("Desired Option")) {
 						s2.selectByIndex(2);
 						Thread.sleep(1000);
-					}
+				}
 				}
 				// Handle the checkbox interaction
 				else if (A14.getTagName().equals("input") && A14.getAttribute("type").equals("checkbox")) {
