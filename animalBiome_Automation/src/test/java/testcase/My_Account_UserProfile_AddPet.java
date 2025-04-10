@@ -130,6 +130,7 @@ public class My_Account_UserProfile_AddPet {
 		Thread.sleep(3000);
 		for (WebElement A2 : m) {
 			A2.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_MM_C/P"))).click();
@@ -140,6 +141,7 @@ public class My_Account_UserProfile_AddPet {
 		Thread.sleep(3000);
 		for (WebElement A3 : s) {
 			A3.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_Insulin"))).click();
@@ -158,6 +160,7 @@ public class My_Account_UserProfile_AddPet {
 		Thread.sleep(3000);
 		for (WebElement A4 : abs) {
 			A4.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_30"))).click();
@@ -170,18 +173,21 @@ public class My_Account_UserProfile_AddPet {
 		Thread.sleep(3000);
 		for (WebElement A5 : pcm) {
 			A5.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		List<WebElement> pcn = driver.findElements(By.xpath(prop.getProperty("N_Phsy_Condition_Nested_List")));
 		Thread.sleep(3000);
 		for (WebElement A6 : pcn) {
 			A6.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		List<WebElement> pcn1 = driver.findElements(By.xpath(prop.getProperty("N_Psy_Condition_Remain")));
 		Thread.sleep(3000);
 		for (WebElement A7 : pcn1) {
 			A7.click();
+			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		List<WebElement> pcn2 = driver.findElements(By.xpath(prop.getProperty("N_Phsy_Condition_Nested_List")));
@@ -190,6 +196,7 @@ public class My_Account_UserProfile_AddPet {
 
 			if (!A8.isSelected()) {
 				A8.click();
+				Thread.sleep(1000);
 			}
 
 		}
@@ -207,6 +214,7 @@ public class My_Account_UserProfile_AddPet {
 
 			if (!A9.isSelected()) {
 				A9.click();
+				Thread.sleep(1000);
 			}
 
 		}
@@ -217,6 +225,7 @@ public class My_Account_UserProfile_AddPet {
 
 			if (!A10.isSelected()) {
 				A10.click();
+				Thread.sleep(1000);
 			}
 
 		}
@@ -229,6 +238,7 @@ public class My_Account_UserProfile_AddPet {
 
 			if (!A11.isSelected()) {
 				A11.click();
+				Thread.sleep(1000);
 			}
 
 		}
@@ -239,6 +249,7 @@ public class My_Account_UserProfile_AddPet {
 
 			if (!A12.isSelected()) {
 				A12.click();
+				Thread.sleep(1000);
 			}
 
 		}
@@ -256,6 +267,7 @@ public class My_Account_UserProfile_AddPet {
 				// Check if the element is not selected and then select by index
 				if (!s1.isMultiple() && !s1.getFirstSelectedOption().getText().equals("Desired Option")) {
 					s1.selectByIndex(2);
+					Thread.sleep(1000);
 				}
 			}
 			// Check if the WebElement is a checkbox (input type="checkbox")
@@ -263,6 +275,7 @@ public class My_Account_UserProfile_AddPet {
 				// Ensure the checkbox is enabled
 				if (A13.isEnabled() && !A13.isSelected()) {
 					A13.click(); // Click if enabled and not selected
+					Thread.sleep(1000);
 				}
 			}
 
@@ -277,13 +290,15 @@ public class My_Account_UserProfile_AddPet {
 					// Check if the element is not selected and then select by index
 					if (!s2.isMultiple() && !s2.getFirstSelectedOption().getText().equals("Desired Option")) {
 						s2.selectByIndex(2);
-					}
+						Thread.sleep(1000);
+				}
 				}
 				// Handle the checkbox interaction
 				else if (A14.getTagName().equals("input") && A14.getAttribute("type").equals("checkbox")) {
 					// Ensure the checkbox is enabled
 					if (A14.isEnabled() && !A14.isSelected()) {
 						A14.click(); // Click if enabled and not selected
+						Thread.sleep(1000);
 					}
 				}
 			}
