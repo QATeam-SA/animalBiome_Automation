@@ -3,45 +3,67 @@
 
 
 	<Properties>
-		<Property name="Logs">./Logs</Property>
+        <Property name="Logs">./Logs</Property>
+    </Properties>
 
-	</Properties>
+    <Appenders>
 
-	<Appenders>
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
 
-		<!-- Console Appender -->
-		<Console name="Console" target="SYSTEM_OUT" follow="true">
-				<PatternLayout
-				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-		</Console>
+        <!-- Debug Log File Appender -->
+        <RollingFile name="debugLog"
+                     fileName="${Logs}/debug.log"
+                     filePattern="${Logs}/debug-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5MB"/>
+            </Policies>
+        </RollingFile>
 
+        <!-- Info Log File Appender -->
+        <RollingFile name="infoLog"
+                     fileName="${Logs}/info.log"
+                     filePattern="${Logs}/info-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5MB"/>
+            </Policies>
+        </RollingFile>
 
-		<RollingFile name="file"
-			fileName="${Logs}/automation.log" filepattern="${Logs}/automation-%d{yyyy-MM-dd}.log">
-			<PatternLayout
-				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
-			<SizeBasedTriggeringPolicy size="5000" />
+        <!-- Error Log File Appender -->
+        <RollingFile name="errorLog"
+                     fileName="${Logs}/error.log"
+                     filePattern="${Logs}/error-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5MB"/>
+            </Policies>
+        </RollingFile>
 
-		</RollingFile>
-		</Appenders>
+        <!-- Combined Log File Appender -->
+        <RollingFile name="file"
+                     fileName="${Logs}/automation.log"
+                     filePattern="${Logs}/automation-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5MB"/>
+            </Policies>
+        </RollingFile>
 
-			<Loggers>
+    </Appenders>
 
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="debugLog"/>
+            <AppenderRef ref="infoLog"/>
+            <AppenderRef ref="errorLog"/>
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
 
-				<Root level="info"> <!-- Here we can use multiple log levels All <Trace <Debug <Info <Warn<Eroor <Fatal <Off -->
-					<!--<AppenderRef ref="debugLog" /> 
-					<AppenderRef ref="infoLog" /> 
-					<AppenderRef ref="errorLog" />--> 
-					<AppenderRef ref="Console" />
-					<AppenderRef ref="file" />
-				</Root>
-				>
-			</Loggers>
-		
 
 </Configuration>
-         
-   
- 
-
- 
