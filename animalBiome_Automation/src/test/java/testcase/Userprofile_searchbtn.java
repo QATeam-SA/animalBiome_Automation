@@ -18,7 +18,7 @@ public class Userprofile_searchbtn {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_searchbtn.properties");
 	
 	@Test(priority=16,enabled=true)
-	public void searchbar() throws InterruptedException 
+	public void ClickingOnSearchBarInUserProfile() throws InterruptedException 
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

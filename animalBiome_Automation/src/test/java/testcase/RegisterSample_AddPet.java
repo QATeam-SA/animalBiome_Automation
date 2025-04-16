@@ -24,7 +24,7 @@ public class RegisterSample_AddPet {
 	Properties prop = PropertiesFile.readPropertyFile("RegisterSample_AddPet.properties");
 	Logger logger = LogManager.getLogger(RegisterSample_AddPet.class);
 	@Test(priority = 10, enabled = true)
-	public void AddPet_MyPet() throws InterruptedException, AWTException {
+	public void AddingDogThroughSampleRegistration() throws InterruptedException, AWTException {
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();
 		Thread.sleep(10000);

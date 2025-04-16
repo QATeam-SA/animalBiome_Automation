@@ -16,8 +16,8 @@ public class Add_Pet_btn {
 	Properties prop = PropertiesFile.readPropertyFile("Add_Pet_btn.properties");
 	
 	@Test(priority=4,enabled=true)
-	public void addpet() throws InterruptedException{
-		Thread.sleep(3000);
+	public void ClickingOnAddPetButton() throws InterruptedException{
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("ADDPET"))).click();
 		Thread.sleep(2000);
 		driver.navigate().back();

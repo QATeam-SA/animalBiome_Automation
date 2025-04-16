@@ -20,7 +20,7 @@ public class Register_Sample_Cat_Gut {
 	Properties prop = PropertiesFile.readPropertyFile("Register_Sample_Cat_Gut.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void register_gutsample() throws InterruptedException 
+	public void RegisteringGutSampleForACat() throws InterruptedException 
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

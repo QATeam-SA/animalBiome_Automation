@@ -19,7 +19,7 @@ public class Edit_CatDetails {
 	Properties prop = PropertiesFile.readPropertyFile("Edit_CatDetails.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void edit_cat() throws InterruptedException {
+	public void EditingTheCatDetails() throws InterruptedException {
 		Thread.sleep(10000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		

@@ -22,7 +22,7 @@ public class Edit_DogDetails {
 	Logger logger = LogManager.getLogger(Edit_DogDetails.class);
 	
 	@Test(priority = 7, enabled = true)
-	public void dog_edit_details() throws Exception {
+	public void EditingTheDogDetails() throws Exception {
 		
 		//----------Edit By Home Page--------
 		

@@ -19,7 +19,7 @@ public class My_Account_UserProfile_viewPet {
 	Logger logger = LogManager.getLogger(My_Account_UserProfile_viewPet.class);
 
 	@Test(priority = 16, enabled = true)
-		public void My_Ac_ViewPet() throws InterruptedException, AWTException {
+		public void ClickingUserPofileFromMyAccntAndViewingAPet() throws InterruptedException, AWTException {
 		logger.info("***** Started going to My account user profile *******");
 		    Thread.sleep(8000);
 		    driver.findElement(By.xpath(prop.getProperty("N_myaccount"))).click();

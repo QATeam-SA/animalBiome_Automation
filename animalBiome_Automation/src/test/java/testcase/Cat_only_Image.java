@@ -29,7 +29,7 @@ public class Cat_only_Image {
 		Logger logger = LogManager.getLogger(Cat_only_Image.class);
 
 		@Test(priority = 7, enabled = true)
-		public void addpet_Mypet() throws InterruptedException, AWTException
+		public void AddingACatWithImageAndWithoutVetDetails() throws InterruptedException, AWTException
 		{
 			Thread.sleep(8000);
 			logger.info("Started adding mypet details");

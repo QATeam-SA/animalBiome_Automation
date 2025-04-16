@@ -19,7 +19,7 @@ public class Deactivate_Cat {
 	Properties prop = PropertiesFile.readPropertyFile("Deactivate_Cat.properties");
 	
 	@Test(priority=11,enabled=true)
-	public void deactivatecat() throws InterruptedException {
+	public void DeactivatingAndViewAllReportsOfCat() throws InterruptedException {
 		  Thread.sleep(10000); 
 		  JavascriptExecutor jse = (JavascriptExecutor) driver;
 		

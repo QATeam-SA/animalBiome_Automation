@@ -18,7 +18,7 @@ public class Listview_Deactivate_Pet {
 		Properties prop = PropertiesFile.readPropertyFile("Listview_Deactivate_Pet.properties");
 		Logger logger = LogManager.getLogger(Listview_Deactivate_Pet.class);
 		@Test(priority = 4, enabled = true)
-		public void deactivatepet() throws InterruptedException {
+		public void DeactivatingPetFromListView() throws InterruptedException {
 			Thread.sleep(8000);
 			logger.info("***** Started deactivate pet from list view*******");
 			WebElement lv = driver.findElement(By.xpath(prop.getProperty("Nlistview")));

@@ -21,7 +21,7 @@ public class My_Account_Register_Sample {
 	Logger logger = LogManager.getLogger(My_Account_Register_Sample.class);
 
 	@Test(priority = 15, enabled = true)
-		public void GutSample_Registration() throws InterruptedException, AWTException {
+		public void RegisterGutSampleThroughMyAccount() throws InterruptedException, AWTException {
 		logger.info("***** Gut sample registration process has been started*******");
 		    Thread.sleep(8000);
 		    driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();
@@ -31,7 +31,7 @@ public class My_Account_Register_Sample {
 			WebElement e =driver.findElement(By.xpath(prop.getProperty("N_select_pet")));
 			Select ss = new Select(e);
 			 Thread.sleep(2000);
-			ss.selectByIndex(4);
+			ss.selectByVisibleText("Athena");
 			Thread.sleep(2000);
 			WebElement e1 =driver.findElement(By.xpath(prop.getProperty("N_Sample")));
 			Select st = new Select(e1);

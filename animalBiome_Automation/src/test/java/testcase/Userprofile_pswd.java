@@ -18,7 +18,7 @@ public class Userprofile_pswd {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_pswd.properties");
 	
 	@Test(priority=15,enabled=true)
-	public void pswd_change() throws InterruptedException {
+	public void ChangingTheUserProfilePassword() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();

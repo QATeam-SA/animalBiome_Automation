@@ -20,7 +20,7 @@ public class Userprofile_gridview {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_gridview.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void gridview() throws InterruptedException 
+	public void ViewAndEditAndDeletePetDetailsFromGridview() throws InterruptedException 
 	{
 		//view pet details
 		Thread.sleep(3000);
@@ -84,7 +84,7 @@ public class Userprofile_gridview {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		Thread.sleep(2000); 
-		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("braze");
+		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("chant");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
 		Thread.sleep(3000);

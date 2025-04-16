@@ -20,7 +20,7 @@ public class Cat_View_AllReports {
 	
 	
 	@Test(priority=5,enabled=true)
-	public void viewallreports() throws InterruptedException {
+	public void ClickingOnViewAndAllReportsForACat() throws InterruptedException {
 		Thread.sleep(10000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		

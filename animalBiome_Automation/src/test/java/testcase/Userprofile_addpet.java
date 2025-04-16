@@ -17,7 +17,7 @@ public class Userprofile_addpet {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_addpet.properties");
 	
 	@Test(priority=16,enabled=true)
-	public void addpet_btn() throws InterruptedException 
+	public void ClickAddPetButton() throws InterruptedException 
 	{
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_addpet_uprfle"))).click();

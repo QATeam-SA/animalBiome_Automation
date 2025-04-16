@@ -18,7 +18,7 @@ public class DeleteGridview_DP {
 	Properties prop = PropertiesFile.readPropertyFile("DeleteGridview_DP.properties");
 	Logger logger = LogManager.getLogger(DeleteGridview_DP.class);
 	@Test(priority = 8, enabled = true)
-	public void deletepet_DP() throws InterruptedException {
+	public void DeletingDeactivatedPetInGridView() throws InterruptedException {
 		Thread.sleep(8000);
 		logger.info("***** Started deleteing deactivated pet in the grid view*******");
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();
