@@ -58,7 +58,7 @@ public class Register_Sample_Cat_Gut {
 	    driver.findElement(By.xpath(prop.getProperty("j_next_btn"))).click();
 	    Thread.sleep(3000);
 	    jse.executeScript("window.scrollBy(0,700)");
-	    Thread.sleep(4000);
+	    Thread.sleep(6000);
 	    driver.findElement(By.xpath(prop.getProperty("j_complete_btn"))).click();
 	    Thread.sleep(9000);
 		jse.executeScript("window.scrollBy(0,200)");
