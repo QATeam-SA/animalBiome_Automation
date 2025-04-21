@@ -24,7 +24,11 @@ public class ExtentManager {
         }
         return extent;
     }
-
+    public static void flushReports() {
+        if (extent != null) {
+            extent.flush();
+        }
+    }
     public static String captureScreenshot(WebDriver driver, String testName) {
         try {
             String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -38,5 +42,6 @@ public class ExtentManager {
             return null;
         }
     }
+
 }
 
