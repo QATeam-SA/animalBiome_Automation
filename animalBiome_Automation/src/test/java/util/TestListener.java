@@ -10,17 +10,12 @@ import com.aventstack.extentreports.Status;
 
 import base.Instance;
 
-import java.io.File;
 
 public class TestListener implements ITestListener {
     private static ExtentReports extent = ExtentManager.getInstance();
     private static ExtentTest test;
     WebDriver driver = Instance.getInstance();
-	/*
-	 * private static WebDriver driver;
-	 * 
-	 * public static void setDriver(WebDriver webDriver) { driver = webDriver; }
-	 */
+	
     @Override
     public void onStart(ITestContext context) {
         System.out.println("Test Execution Started.");
@@ -59,9 +54,7 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
-        extent.flush(); // Generate Extent Report
-        System.out.println("Test Execution Finished. Sending Report via Email...");
-        EmailReport.sendReportEmail(); // Automatically Send Report
+		/* extent.flush(); */
+        System.out.println("Test Execution Finished.");
     }
 }
-
