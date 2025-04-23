@@ -16,7 +16,7 @@ public class DeleteListview_DP {
 	Properties prop = PropertiesFile.readPropertyFile("DeleteListview_DP.properties");
 	Logger logger = LogManager.getLogger(DeleteListview_DP.class);
 	@Test(priority = 9, enabled = true)
-	public void deletepetLv_DP() throws InterruptedException {
+	public void DeletingDeactivatedPetInListView() throws InterruptedException {
 		Thread.sleep(8000);
 		logger.info("***** Started deleteing deactivated pet in the List view*******");
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();

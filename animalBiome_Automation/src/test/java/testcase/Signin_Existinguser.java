@@ -17,7 +17,7 @@ public class Signin_Existinguser {
 	 Logger logger = LogManager.getLogger(Signin_Existinguser.class);
 
 	@Test(priority=2, enabled=true)
-	public void login() throws InterruptedException {
+	public void Login() throws InterruptedException {
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
 		driver.get(prop.getProperty("baseURL"));

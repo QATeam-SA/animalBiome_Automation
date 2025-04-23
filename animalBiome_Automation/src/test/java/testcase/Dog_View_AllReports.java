@@ -23,7 +23,7 @@ public class Dog_View_AllReports {
 	Logger logger = LogManager.getLogger(Dog_View_AllReports.class);
 
 	@Test(priority = 6, enabled = true)
-	public void dog_view_reports() throws Exception {
+	public void ViewingReportDetailsOfADog() throws Exception {
 		
 		//------VEIW DOG Details---------
 		

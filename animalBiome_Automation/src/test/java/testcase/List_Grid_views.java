@@ -18,7 +18,7 @@ public class List_Grid_views {
 	Properties prop = PropertiesFile.readPropertyFile("List_Grid_views.properties");
 	
 	@Test(priority=15,enabled=true)
-	public void list_grid_views() throws InterruptedException {
+	public void ClickingOnListViewAndGridView() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();

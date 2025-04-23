@@ -20,7 +20,7 @@ public class My_Account_Register_Oralsample {
 		Properties prop = PropertiesFile.readPropertyFile("My_Account_Register_Oralsample.properties");
 		
 		@Test(priority=11,enabled=true)
-		public void myaacnt_register_oralsample() throws InterruptedException {
+		public void RegisteringOralSampleThroughMyAccount() throws InterruptedException {
 			Thread.sleep(4000);
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			logger.info("Oral sample registration process has been started");

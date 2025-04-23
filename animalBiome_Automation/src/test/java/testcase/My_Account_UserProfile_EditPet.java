@@ -22,7 +22,7 @@ public class My_Account_UserProfile_EditPet {
 	Logger logger = LogManager.getLogger(My_Account_UserProfile_EditPet.class);
 
 	@Test(priority = 17, enabled = true)
-	public void Edit_MyPet() throws InterruptedException, AWTException {
+	public void ClickingUserPofileFromMyAccntAndEditingAPet() throws InterruptedException, AWTException {
 		logger.info("***** Started going to My account user profile *******");
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(prop.getProperty("N_myaccount"))).click();

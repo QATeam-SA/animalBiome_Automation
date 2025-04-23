@@ -17,7 +17,7 @@ public class Add_Cat_None {
 	Properties prop = PropertiesFile.readPropertyFile("Add_Cat_None.properties");
 	
 	@Test(priority=3,enabled=true)
-	public void addcat_none() throws InterruptedException {
+	public void AddingACatWithNoneOptions() throws InterruptedException {
 		Thread.sleep(3000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_addpet"))).click();

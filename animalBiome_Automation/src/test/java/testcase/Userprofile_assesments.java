@@ -17,7 +17,7 @@ public class Userprofile_assesments {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_assesments.properties");
 	
 	@Test(priority=14,enabled=true)
-	public void userprofile_cat() throws InterruptedException {
+	public void UpdatingAssesmentsOfAPetThroughUserprofile() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();

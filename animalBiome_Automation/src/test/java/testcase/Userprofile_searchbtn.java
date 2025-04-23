@@ -18,7 +18,7 @@ public class Userprofile_searchbtn {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_searchbtn.properties");
 	
 	@Test(priority=16,enabled=true)
-	public void searchbar() throws InterruptedException 
+	public void ClickingOnSearchBarInUserProfile() throws InterruptedException 
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -31,7 +31,7 @@ public class Userprofile_searchbtn {
 		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("terex");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_clearsearch"))).click();	
 		logger.info("Search button is clicked succesfully");
 	}

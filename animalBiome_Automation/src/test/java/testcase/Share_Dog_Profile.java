@@ -24,7 +24,7 @@ public class Share_Dog_Profile {
 	Logger logger = LogManager.getLogger(Share_Dog_Profile.class);
 	
 	@Test(priority = 8, enabled = true)
-	public void share_pet_profile() throws Exception {
+	public void sharingDogProfile() throws Exception {
 
 		// ----------Share Pet Profile [PUBLIC]--------
 

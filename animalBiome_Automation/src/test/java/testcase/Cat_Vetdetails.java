@@ -22,7 +22,7 @@ public class Cat_Vetdetails {
 	Logger logger = LogManager.getLogger(Cat_Vetdetails.class);
 
 	@Test(priority = 10, enabled = true)
-	public void addpet_MyPet() throws InterruptedException
+	public void AddingACatWithoutImageAndWithVetDetails() throws InterruptedException
 	{
 		logger.info("Started adding mypet details");
 		Thread.sleep(8000);

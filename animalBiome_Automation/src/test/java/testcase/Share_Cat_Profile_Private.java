@@ -22,7 +22,7 @@ public class Share_Cat_Profile_Private {
 	
 	
 	@Test(priority=14,enabled=true)
-	public void sharepetprofile_private() throws InterruptedException
+	public void SharingThePrivateCatProfile() throws InterruptedException
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

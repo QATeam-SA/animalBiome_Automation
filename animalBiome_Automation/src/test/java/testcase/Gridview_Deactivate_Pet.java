@@ -23,7 +23,7 @@ public class Gridview_Deactivate_Pet {
 	Properties prop = PropertiesFile.readPropertyFile("Gridview_Deactivate_Pet.properties");
 	Logger logger = LogManager.getLogger(Gridview_Deactivate_Pet.class);
 	@Test(priority = 3, enabled = true)
-	public void deactivatepet() throws InterruptedException {
+	public void DeactivatingPetFromGridView() throws InterruptedException {
 		Thread.sleep(7000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");

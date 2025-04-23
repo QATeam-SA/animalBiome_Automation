@@ -28,7 +28,7 @@ public class Dog_onlyImage {
 
 
 	@Test(priority = 9, enabled = true)
-	public void dogwithimg() throws Exception {
+	public void AddingDogOnlyWithImgAndNotVetDetails() throws Exception {
 
 		// ------- MY PET---------
 

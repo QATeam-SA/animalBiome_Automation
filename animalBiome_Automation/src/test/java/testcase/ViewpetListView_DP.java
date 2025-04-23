@@ -17,7 +17,7 @@ public class ViewpetListView_DP {
 	Properties prop = PropertiesFile.readPropertyFile("ViewpetListView_DP.properties");
 	Logger logger = LogManager.getLogger(ViewpetListView_DP.class);
 	@Test(priority = 6, enabled = true)
-	public void LviewpetDp() throws InterruptedException {
+	public void ViewingDeactivatedPetFromListView() throws InterruptedException {
 		Thread.sleep(8000);
 		logger.info("***** Started viewing the deactivated pet from list view *******");
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();

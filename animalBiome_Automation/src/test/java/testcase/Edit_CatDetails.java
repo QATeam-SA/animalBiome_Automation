@@ -19,15 +19,17 @@ public class Edit_CatDetails {
 	Properties prop = PropertiesFile.readPropertyFile("Edit_CatDetails.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void edit_cat() throws InterruptedException {
+	public void EditingTheCatDetails() throws InterruptedException {
 		Thread.sleep(10000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		
 		//edit pet from home page
-		driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("solow");
-		Thread.sleep(4000);
-		driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
-		Thread.sleep(8000);
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("solow")
+		 * ; Thread.sleep(4000);
+		 * driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
+		 */
+		Thread.sleep(6000);
 		WebElement targetelement = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action = new Actions(driver);
 		action.moveToElement(targetelement).perform();
@@ -80,10 +82,12 @@ public class Edit_CatDetails {
 		
 		//edit pet details from view pet portal page
 		Thread.sleep(10000);
-		driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("terex");
-		Thread.sleep(4000);
-		driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
-		Thread.sleep(8000);
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("terex")
+		 * ; Thread.sleep(4000);
+		 * driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
+		 */
+		Thread.sleep(6000);
 		WebElement targetelement1 = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action1 = new Actions(driver);
 		action1.moveToElement(targetelement1).perform();

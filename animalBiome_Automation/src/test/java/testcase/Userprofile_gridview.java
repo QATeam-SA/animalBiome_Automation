@@ -20,7 +20,7 @@ public class Userprofile_gridview {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_gridview.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void gridview() throws InterruptedException 
+	public void ViewAndEditAndDeletePetDetailsFromGridview() throws InterruptedException 
 	{
 		//view pet details
 		Thread.sleep(3000);
@@ -30,11 +30,13 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		Thread.sleep(2000); 
 		jse.executeScript("window.scrollBy(0,300)");
+		
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo");
+		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo"); 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
+		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
 		Thread.sleep(3000);
+		 
 		WebElement targetelement = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action = new Actions(driver);
 		action.moveToElement(targetelement).perform();
@@ -56,10 +58,12 @@ public class Userprofile_gridview {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		Thread.sleep(2000); 
-		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo");
+		
+		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo"); 
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
+		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
 		Thread.sleep(3000);
+		 
 		WebElement targetelement1 = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action1 = new Actions(driver);
 		action1.moveToElement(targetelement1).perform();
@@ -83,10 +87,12 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
-		Thread.sleep(2000); 
-		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("braze");
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
+		/*
+		 * Thread.sleep(2000);
+		 * driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys(
+		 * "chant"); Thread.sleep(3000);
+		 * driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
+		 */
 		Thread.sleep(3000);
 		WebElement targetelement2 = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action2 = new Actions(driver);
