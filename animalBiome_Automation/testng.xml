@@ -137,6 +137,9 @@
 	</test>
 	<test thread-count="5" name="Add_Others_1" enabled="true">
 		<classes>
+			<class name="testcase.Other_WithoutImage_WithVetDetails" />
+			<class name="testcase.Other_WithImage_WithoutVetDetails" />
+			<class name="testcase.Other_WithImage_VetDetails" />
 			<class name="testcase.Other_WithoutImage_None" />
 		</classes>
 	</test>
