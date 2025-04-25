@@ -16,7 +16,7 @@
 			<class name="testcase.Dog_Img_Vet" />
 			<class name="testcase.Dog_onlyImage" />
 			<class name="testcase.Dog_Vetdetails" />
-
+			<class name="testcase.Add_Dog_None" />
 		</classes>
 	</test>
 

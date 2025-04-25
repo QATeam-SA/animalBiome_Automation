@@ -22,7 +22,7 @@ public class Share_Cat_Profile_Public {
 	
 	
 	@Test(priority=14,enabled=true)
-	public void sharepetprofile() throws InterruptedException {
+	public void SharingThePublicCatProfile() throws InterruptedException {
 		Thread.sleep(10000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("sera");

@@ -28,7 +28,7 @@ public class Dog_Img_Vet {
 
 
 	@Test(priority = 4, enabled = true)
-	public void dogimg() throws Exception {
+	public void AddingDogWithImgandVet() throws Exception {
 
 		// ------- MY PET---------
 

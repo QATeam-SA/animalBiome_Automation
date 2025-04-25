@@ -18,7 +18,7 @@ public class RegisterSample_Addpet_Cat {
 	Properties prop = PropertiesFile.readPropertyFile("RegisterSample_Addpet_Cat.properties");
 	
 	@Test(priority=3,enabled=true)
-	public void register_sample_addpet() throws InterruptedException
+	public void AddingCatThroughSampleRegistration() throws InterruptedException
 	{
 		Thread.sleep(3000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

@@ -23,7 +23,7 @@ public class Dog_Vetdetails {
 
 
 	@Test(priority = 10, enabled = true)
-	public void dogwithvet() throws Exception {
+	public void AddingDogWithoutImageAndWithVetDetails() throws Exception {
 
 		// ------- MY PET---------
 

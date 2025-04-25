@@ -31,7 +31,7 @@ public class My_Account_UserProfile_AddPet {
 	Logger logger = LogManager.getLogger(My_Account_UserProfile_AddPet.class);
 
 	@Test(priority = 20, enabled = true)
-	public void My_Ac_AddPet() throws InterruptedException, AWTException {
+	public void ClickingUserPofileFromMyAccntAndAddingAPet() throws InterruptedException, AWTException {
 		logger.info("***** Started going to My account user profile & adding pet *******");
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(prop.getProperty("N_myaccount"))).click();

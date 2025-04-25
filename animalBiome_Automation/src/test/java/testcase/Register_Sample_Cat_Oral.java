@@ -20,7 +20,7 @@ public class Register_Sample_Cat_Oral {
 	Properties prop = PropertiesFile.readPropertyFile("Register_Sample_Cat_Oral.properties");
 	
 	@Test(priority=9,enabled=true)
-	public void register_oralsample() throws InterruptedException {
+	public void RegisteringOralSampleForACat() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		logger.info("Oral sample registration process has been started");

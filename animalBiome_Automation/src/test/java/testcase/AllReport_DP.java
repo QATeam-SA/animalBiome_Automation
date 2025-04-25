@@ -18,7 +18,7 @@ public class AllReport_DP {
 	Properties prop = PropertiesFile.readPropertyFile("AllReport_DP.properties");
 	Logger logger = LogManager.getLogger(AllReport_DP.class);
 	@Test(priority = 7, enabled = true)
-	public void allreportDp() throws InterruptedException {
+	public void ViewingTheAllReportsForADeactivatedDog() throws InterruptedException {
 		Thread.sleep(8000);
 		logger.info("***** Started vieing report by clicking all report for deactivated pet*******");
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();

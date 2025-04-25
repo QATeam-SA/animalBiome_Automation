@@ -18,7 +18,7 @@ public class Userprofile_pagination {
 	Properties prop = PropertiesFile.readPropertyFile("Userprofile_pagination.properties");
 	
 	@Test(priority=16,enabled=true)
-	public void pagination() throws InterruptedException {
+	public void ClickingOnPaginationFromUserpofile() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();

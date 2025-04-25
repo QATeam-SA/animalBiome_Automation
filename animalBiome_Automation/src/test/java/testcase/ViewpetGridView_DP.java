@@ -18,7 +18,7 @@ public class ViewpetGridView_DP {
 	Properties prop = PropertiesFile.readPropertyFile("ViewpetGridView_DP.properties");
 	Logger logger = LogManager.getLogger(ViewpetGridView_DP.class);
 	@Test(priority = 5, enabled = true)
-	public void gviewpetDp() throws InterruptedException {
+	public void ViewingDeactivatedPetFromGridView() throws InterruptedException {
 		Thread.sleep(8000);
 		logger.info("***** Started viewing the deactivated pet from grid view *******");
 		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();

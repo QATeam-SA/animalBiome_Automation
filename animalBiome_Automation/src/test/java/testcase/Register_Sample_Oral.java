@@ -22,7 +22,7 @@ public class Register_Sample_Oral {
 	Logger logger = LogManager.getLogger(Register_Sample_Oral.class);
 
 	@Test(priority = 16, enabled = true)
-	public void Oral_Sample_Registration() throws InterruptedException, AWTException {
+	public void RegisteringOralSampleForADog() throws InterruptedException, AWTException {
 	
 	    Thread.sleep(8000);
 	    logger.info("***** Oral sample registration process has been started*******");
@@ -31,7 +31,7 @@ public class Register_Sample_Oral {
 		WebElement e =driver.findElement(By.xpath(prop.getProperty("N_select_pet")));
 		Select ss = new Select(e);
 		 Thread.sleep(2000);
-		ss.selectByIndex(4);
+		ss.selectByVisibleText("Athena");
 		Thread.sleep(2000);
 		WebElement e1 =driver.findElement(By.xpath(prop.getProperty("N_Sample")));
 		Select st = new Select(e1);
