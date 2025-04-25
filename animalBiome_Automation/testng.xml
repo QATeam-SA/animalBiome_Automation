@@ -134,5 +134,19 @@
 			<class name="testcase.AddHorse_WithImage_WithVetDetails" />
 			<class name="testcase.Add_Horse_None" />
 		</classes>
-	</test>
+		</test>
+		<test thread-count="5" name="View_and_AllReports_2" enabled="true">
+		<classes>
+		<class name="testcase.HorseView_Button" />
+		<class name="testcase.HorseAllReportButton"/>
+		<class name="testcase.Horse_ReportButton"/>
+		</classes>
+		</test>
+		<test thread-count="5" name="Edit_Pet_3" enabled="true">
+		<classes>
+		<class name="testcase.EditHorse_HomePage" />
+		<class name="testcase.EditHorse_ViewPetPortal"/>
+		
+		</classes>
+		</test>
 </suite> 
