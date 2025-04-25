@@ -95,7 +95,7 @@
 
 	<test thread-count="5" name="Share_pet_profile_4" enabled="false">
 		<classes>
-			<!--<class name="testcase.Share_Cat_Profile_Public"/>-->
+			<class name="testcase.Share_Cat_Profile_Public"/>
 			<class name="testcase.Share_Cat_Profile_Private" />
 		</classes>
 	</test>
@@ -135,7 +135,7 @@
 			<class name="testcase.Add_Horse_None" />
 		</classes>
 	</test>
-	<test thread-count="5" name="Add_Others_1" enabled="true">
+	<test thread-count="5" name="Add_Others_1" enabled="false">
 		<classes>
 			<class name="testcase.Other_WithoutImage_WithVetDetails" />
 			<class name="testcase.Other_WithImage_WithoutVetDetails" />
@@ -143,4 +143,22 @@
 			<class name="testcase.Other_WithoutImage_None" />
 		</classes>
 	</test>
+	<test thread-count="5" name="VIEW_ALL_REPORTS_2" enabled="false">
+		<classes>
+			<class name="testcase.Others_View_All_Reports" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Share_othrs_pet_profile_4" enabled="false">
+		<classes>
+			<class name="testcase.Others_Share_pet_Profile_Private"/>
+			<class name="testcase.Others_Share_pet_Profile_Public" />
+		</classes>
+	</test>
+	<test thread-count="5" name="Home Page[Dashboard]_6" enabled="true">
+		<classes>
+			<class name="testcase.User_Others_Petsearchbar"/>
+			<class name="testcase.Others_List_Grid_Views" />
+		</classes>
+	</test>
+	
 </suite> 
