@@ -26,6 +26,7 @@ public class EditHorse_HomePage {
 
 	@Test(enabled = true)
 	public void EditingHorseFromHomePage() throws InterruptedException {
+		
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		logger.info("***** Started editing the pet from home page*******");
@@ -40,18 +41,10 @@ public class EditHorse_HomePage {
         WebElement br =wait3
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("NBreed"))));
         br.click();
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("NBreed"))).click();
-		 * Thread.sleep(3000);
-		 */
 		WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(2000));
         WebElement hp =wait4
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("NbreedType"))));
         hp.click();
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click();
-		 * Thread.sleep(2000);
-		 */
 		jse.executeScript("window.scrollBy(0,400)");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement dropdown = wait

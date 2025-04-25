@@ -23,6 +23,7 @@ public class HorseAllReportButton {
 
 	@Test(enabled = true)
 	public void ClickingHorseAllReportButton() throws InterruptedException {
+		
 		Thread.sleep(3000);
 		logger.info("***** Started viewing all report by Viewing a horse profile*******");
 		driver.findElement(By.xpath(prop.getProperty("N_HorseSearch"))).sendKeys(prop.getProperty("N_Horse_Name"));

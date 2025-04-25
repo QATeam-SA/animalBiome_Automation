@@ -22,6 +22,7 @@ public class Horse_ReportButton {
 	Properties prop = PropertiesFile.readPropertyFile("Horse_ReportButton.properties");
 	@Test(enabled = true)
 	public void ClickingHorseReportButton() throws InterruptedException {
+		
 		Thread.sleep(1000);
 		logger.info("***** Started clicking report button & viewing the report *******");
 		driver.findElement(By.xpath(prop.getProperty("N_HorseSearch"))).sendKeys(prop.getProperty("N_Horse_Name"));

@@ -42,17 +42,11 @@ public class EditHorse_ViewPetPortal {
         WebElement br =wait3
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("NBreed"))));
         br.click();
-		
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("NBreed"))).click();
-		 * Thread.sleep(3000);
-		 */
         WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(2000));
         WebElement hp =wait4
                 .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("NbreedType"))));
         hp.click();
         
-		/* driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click(); */
 		Thread.sleep(1000);
 		jse.executeScript("window.scrollBy(0,400)");
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).clear();

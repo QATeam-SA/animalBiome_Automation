@@ -24,6 +24,7 @@ public class HorseView_Button {
 
 	@Test(enabled = true)
 	public void ClickingHorseViewButton() throws InterruptedException {
+		
 		Thread.sleep(4000);
 		logger.info("***** Viewing a horse profile*******");
 		driver.findElement(By.xpath(prop.getProperty("N_HorseSearch"))).sendKeys(prop.getProperty("N_Horse_Name"));
