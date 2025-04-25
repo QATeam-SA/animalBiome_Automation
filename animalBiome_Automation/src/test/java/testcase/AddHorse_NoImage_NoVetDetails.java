@@ -24,7 +24,7 @@ public class AddHorse_NoImage_NoVetDetails {
 	Logger logger = LogManager.getLogger(AddHorse_NoImage_NoVetDetails.class);
 	WebDriver driver = Instance.getInstance();
 	Properties prop = PropertiesFile.readPropertyFile("AddHorse_NoImage_NoVetDetails.properties");
-***Hello World****
+
 	@Test(enabled = true)
 	public void AddingHorsePetDetails() throws InterruptedException {
 		Thread.sleep(4000);
