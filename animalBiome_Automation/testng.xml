@@ -151,4 +151,13 @@
 		
 		</classes>
 		</test>
+		<test thread-count="5" name="Share_Pet_Profile_4" enabled="true">
+		<classes>
+		<class name="testcase.Share_Horse_Profile_Public" />
+		<class name="testcase.Share_Horse_Profile_Private" />
+		
+		</classes>
+		</test>
+		
+		
 </suite> 
