@@ -24,6 +24,7 @@ public class Others_List_Grid_Views {
 		logger.info("successfully clicked on listview");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("j_gridview"))).click();
+		Thread.sleep(3000);
 		logger.info("successfully clicked on gridview");
 }
 }

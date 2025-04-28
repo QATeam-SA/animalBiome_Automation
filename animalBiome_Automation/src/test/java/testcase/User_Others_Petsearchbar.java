@@ -25,6 +25,7 @@ public class User_Others_Petsearchbar {
 		driver.findElement(By.name(prop.getProperty("j_searchbutton"))).click();
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(prop.getProperty("j_clearsearch"))).click();
+		Thread.sleep(3000);
 		logger.info("Search bar clicked successfully");
 }
 }
