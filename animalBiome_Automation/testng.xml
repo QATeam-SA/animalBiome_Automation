@@ -11,7 +11,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="ADD PET_1" enabled="false">
+	<test thread-count="5" name="ADD PET_1" enabled="true">
 		<classes>
 			<class name="testcase.Dog_Img_Vet" />
 			<class name="testcase.Dog_onlyImage" />
@@ -20,25 +20,25 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="false">
+	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="true">
 		<classes>
 			<class name="testcase.Dog_View_AllReports" />
 		</classes>
 	</test>
 
-	<test thread-count="5" name="EDIT PET_3" enabled="false">
+	<test thread-count="5" name="EDIT PET_3" enabled="true">
 		<classes>
 			<class name="testcase.Edit_DogDetails" />
 		</classes>
 	</test>
 
-	<test thread-count="5" name="SHARE PET PROFILE_4" enabled="false">
+	<test thread-count="5" name="SHARE PET PROFILE_4" enabled="true">
 		<classes>
 			<class name="testcase.Share_Dog_Profile" />
 		</classes>
 	</test>
 
-	<test thread-count="5" name="Deactivated_pet_5" enabled="false">
+	<test thread-count="5" name="Deactivated_pet_5" enabled="true">
 		<classes>
 			<class name="testcase.Gridview_Deactivate_Pet" />
 			<class name="testcase.Listview_Deactivate_Pet" />
@@ -71,7 +71,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="ADD_PET_1" enabled="false">
+	<test thread-count="5" name="ADD_PET_1" enabled="true">
 		<classes>
 			<class name="testcase.Add_Pet_btn" />
 			<class name="testcase.Add_Cat_None" />
@@ -81,7 +81,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="false">
+	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="true">
 		<classes>
 			<class name="testcase.Cat_View_AllReports" />
 		</classes>
@@ -93,14 +93,14 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="Share_pet_profile_4" enabled="false">
+	<test thread-count="5" name="Share_pet_profile_4" enabled="true">
 		<classes>
 			<!--<class name="testcase.Share_Cat_Profile_Public"/>-->
 			<class name="testcase.Share_Cat_Profile_Private" />
 		</classes>
 	</test>
 
-	<test thread-count="5" name="deactivatecatprofile_5" enabled="false">
+	<test thread-count="5" name="deactivatecatprofile_5" enabled="true">
 		<classes>
 			<class name="testcase.Deactivate_Cat" />
 		</classes>
@@ -115,7 +115,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="Myaccount_UserProfile_8" enabled="false">
+	<test thread-count="5" name="Myaccount_UserProfile_8" enabled="true">
 		<classes>
 			<class name="testcase.Userprofile_assesments" />
 			<!--<class name="testcase.Userprofile_pswd"/>-->

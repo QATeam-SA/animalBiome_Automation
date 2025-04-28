@@ -60,7 +60,7 @@ public class PropertiesFile {
 		
 		if(driver== null) {	
 			 {
-				FileReader input = new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\aB_datafile.properties");
+				FileReader input = new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\DG_Url.properties");
 				prop.load(input);
 			}
 			 if(prop.getProperty("Browser").equalsIgnoreCase("chrome")) {
