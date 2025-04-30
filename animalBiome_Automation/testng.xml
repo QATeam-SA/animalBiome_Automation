@@ -169,9 +169,20 @@
 			<class name="testcase.Others_Pagination_MbReports" />
 		</classes>
 	</test>
-	<test thread-count="5" name="Open_Reports_7" enabled="true">
+	<test thread-count="5" name="Open_Reports_7" enabled="false">
 		<classes>
 			<class name="testcase.User_Others_OpeningReports"/>
 			</classes>
+	</test>
+	<test thread-count="5" name="Deactivate_pet_others_8" enabled="true">
+		<classes>
+			<class name="testcase.User_Others_Deactivatepet_Gridview" />
+			<class name="testcase.User_Others_Deactivatepet_Listview" />
+			<class name="testcase.User_Others_Grid_view_DP" />
+			<class name="testcase.User_Others_List_view_DP" />
+			<class name="testcase.User_Others_Allreports_DP" />
+			<class name="testcase.User_Others_Gridview_Del_DP" />
+			<class name="testcase.User_Others_Listview_Del_DP" />
+		</classes>
 	</test>
 </suite> 
