@@ -1,0 +1,5 @@
+Thunder=2
+fury=1
+Ryder=2
+Bandit=1
+scout=1

@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -32,7 +34,7 @@ public class AddHorse_WithImage_NoVetDetails {
 	Properties prop = PropertiesFile.readPropertyFile("AddHorse_WithImage_NoVetDetails.properties");
 
 	@Test(enabled = true)
-	public void AddingHorsePetDetails() throws InterruptedException, AWTException {
+	public void AddingHorsePetDetails() throws InterruptedException, AWTException, IOException {
 		Thread.sleep(4000);
 		logger.info("***** Adding a horse with all details in my pet section*******");
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -40,7 +42,7 @@ public class AddHorse_WithImage_NoVetDetails {
 		Thread.sleep(3000);
 		jse.executeScript("window.scrollBy(0,400)");
 		driver.findElement(By.xpath(prop.getProperty("NHorse"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		jse.executeScript("window.scrollBy(0,-200)");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Horse_Profile_Picture"))).click();
@@ -71,17 +73,28 @@ public class AddHorse_WithImage_NoVetDetails {
 		js.executeScript("window.scrollBy(0,500)", "");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_H_Submit"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,300)", "");
 		driver.findElement(By.xpath(prop.getProperty("NselectBreed"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("N_Horse_Name")))
-				.sendKeys((prop.getProperty("N_Enter_Horse_Name")) + "_" + System.currentTimeMillis());
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Horse";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
+		
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age"));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Months"))).sendKeys(prop.getProperty("N_enter_Month"));
 		Thread.sleep(1000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

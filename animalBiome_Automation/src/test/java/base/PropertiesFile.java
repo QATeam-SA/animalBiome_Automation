@@ -1,9 +1,12 @@
 package base;
 
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+
 import java.io.IOException;
 import java.util.Properties;
 
@@ -77,6 +80,23 @@ public class PropertiesFile {
 				}
 			 }
 	}
+	
+	
+    public static String getExcelFilePath() {
+        Properties prop = readPropertyFile("ab_datafile.properties");
+        return prop.getProperty("ExcelPath");
+    }
+
+    public static String getExcelSheetName() {
+        Properties prop = readPropertyFile("ab_datafile.properties");
+        return prop.getProperty("ExcelSheet");
+    }
+    public static String getPetExcelSheetName() {
+        Properties prop = readPropertyFile("ab_datafile.properties");
+        return prop.getProperty("PetExcelSheet");
+    }
+    
+	
 	@AfterTest	
 	public void tearDown() {
 			System.out.println("Browser Opened Successfully");

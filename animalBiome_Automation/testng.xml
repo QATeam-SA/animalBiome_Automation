@@ -133,6 +133,23 @@
 			<class name="testcase.AddHorse_WithImage_NoVetDetails" />
 			<class name="testcase.AddHorse_WithImage_WithVetDetails" />
 			<class name="testcase.Add_Horse_None" />
+			<!--<class name="testcase.Add_Horse_None_Coddex" />-->
+			
+		</classes>
+		</test>
+		<test thread-count="5" name="Edit_Pet_3" enabled="true">
+		<classes>
+		<class name="testcase.EditHorse_HomePage" />
+		<class name="testcase.EditHorse_ViewPetPortal"/>
+		</classes>
+		</test>
+		
+		<test thread-count="5" name="Register_Sample_6" enabled="true">
+		<classes>
+		<class name="testcase.Register_SampleAddPet_Horse" />
+		<class name="testcase.Register_HorseSample_Gut" />
+		<class name="testcase.Register_HorseSample_Oral"/>
+		
 		</classes>
 		</test>
 		<test thread-count="5" name="View_and_AllReports_2" enabled="true">
@@ -140,17 +157,9 @@
 		<class name="testcase.HorseView_Button" />
 		<class name="testcase.HorseAllReportButton"/>
 		<class name="testcase.Horse_ReportButton"/>
-		
 		</classes>
 		</test>
-		<test thread-count="5" name="Edit_Pet_3" enabled="true">
-		<classes>
 		
-		<class name="testcase.EditHorse_HomePage" />
-		<class name="testcase.EditHorse_ViewPetPortal"/>
-		
-		</classes>
-		</test>
 		<test thread-count="5" name="Share_Pet_Profile_4" enabled="true">
 		<classes>
 		<class name="testcase.Share_Horse_Profile_Public" />
@@ -159,5 +168,12 @@
 		</classes>
 		</test>
 		
+		<test thread-count="5" name="Deactivate_Horse_4" enabled="true">
+		<classes>
+		<class name="testcase.Deactivate_Horse_From_GridView" />
+		<class name="testcase.Deactivate_Horse_From_ListView" />
+		
+		</classes>
+		</test>
 		
 </suite> 
