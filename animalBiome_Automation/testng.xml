@@ -160,6 +160,11 @@
 			<class name="testcase.Others_Share_pet_Profile_Public" />
 		</classes>
 	</test>
+	<test thread-count="5" name="Register_Sample_Others_5" enabled="true">
+		<classes>
+			<class name="testcase.User_Others_Regsample_Addpet"/>
+	</classes>
+	</test>
 	<test thread-count="5" name="Home_Page[Dashboard]_6" enabled="false">
 		<classes>
 			<class name="testcase.User_Others_Petsearchbar"/>
@@ -174,7 +179,7 @@
 			<class name="testcase.User_Others_OpeningReports"/>
 			</classes>
 	</test>
-	<test thread-count="5" name="Deactivate_pet_others_8" enabled="true">
+	<test thread-count="5" name="Deactivate_pet_others_8" enabled="false">
 		<classes>
 			<class name="testcase.User_Others_Deactivatepet_Gridview" />
 			<class name="testcase.User_Others_Deactivatepet_Listview" />

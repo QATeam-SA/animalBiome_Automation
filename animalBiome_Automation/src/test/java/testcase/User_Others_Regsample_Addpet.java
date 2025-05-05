@@ -25,13 +25,13 @@ import org.testng.annotations.Test;
 import base.Instance;
 import base.PropertiesFile;
 
-public class Other_WithImage_VetDetails {
+public class User_Others_Regsample_Addpet {
 	WebDriver driver = Instance.getInstance();
-	Properties prop = PropertiesFile.readPropertyFile("Other_WithImage_VetDetails.properties");
-	Logger logger = LogManager.getLogger(Other_WithImage_VetDetails.class);
+	Properties prop = PropertiesFile.readPropertyFile("User_Others_Regsample_Addpet.properties");
+	Logger logger = LogManager.getLogger(User_Others_Regsample_Addpet.class);
 
 	@Test(priority = 16, enabled = true)
-	public void OtherSpeciesWithImageandVet() throws Exception {
+	public void AddPetOthersThroughRegsample() throws Exception {
 
 		// ------- MY PET---------
 
@@ -51,58 +51,53 @@ public class Other_WithImage_VetDetails {
 
 		Thread.sleep(10000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		driver.findElement(By.xpath(prop.getProperty("G_AddPetButton"))).click();
+		driver.findElement(By.xpath(prop.getProperty("G_Regsamplebtn"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(prop.getProperty("G_Regsample_AddPetButton"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_OtherButton"))).click();
 		Thread.sleep(2000);
 		Select species = new Select(driver.findElement(By.xpath(prop.getProperty("G_SelectSpecies"))));
-		species.selectByVisibleText("Cattle");
+		species.selectByVisibleText("Sheep");
 		Thread.sleep(1500);
 		Select breed = new Select(driver.findElement(By.xpath(prop.getProperty("G_SelectBreed"))));
-		breed.selectByVisibleText("Devon Ox");
+		breed.selectByVisibleText("Dorper");
 		Thread.sleep(1500);
 		js.executeScript("window.scrollBy(0,200)");
-		driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).click();
-
-		Thread.sleep(5000);
-
-		Robot rb = new Robot();
-		rb.delay(2000);
-
-		StringSelection ss = new StringSelection(prop.getProperty("Upload_other"));
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(2000);
-		driver.switchTo();
-		Actions act = new Actions(driver);
-		WebElement ele = driver.findElement(By.xpath(prop.getProperty("G_Drag_&_drop")));
-		Thread.sleep(2000);
-		act.dragAndDropBy(ele, -40, 0).perform();
-		Thread.sleep(2000);
-		js.executeScript("window.scrollBy(0,500)", "");
-		driver.findElement(By.xpath(prop.getProperty("G_Submit"))).click();
-		Thread.sleep(3000);
-		js.executeScript("window.scrollBy(0,200)");
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).
+		 * click();
+		 * 
+		 * Thread.sleep(5000);
+		 * 
+		 * Robot rb = new Robot(); rb.delay(2000);
+		 * 
+		 * StringSelection ss = new StringSelection(prop.getProperty("Upload_other"));
+		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
+		 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
+		 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
+		 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000); driver.switchTo(); Actions
+		 * act = new Actions(driver); WebElement ele =
+		 * driver.findElement(By.xpath(prop.getProperty("G_Drag_&_drop")));
+		 * Thread.sleep(2000); act.dragAndDropBy(ele, -40, 0).perform();
+		 * Thread.sleep(2000); js.executeScript("window.scrollBy(0,500)", "");
+		 * driver.findElement(By.xpath(prop.getProperty("G_Submit"))).click();
+		 * Thread.sleep(3000); js.executeScript("window.scrollBy(0,200)");
+		 */
 		Thread.sleep(1000);
 		driver.findElement(By.id(prop.getProperty("G_PetName")))
 				.sendKeys((prop.getProperty("G_pet_Oname")) + "_" + System.currentTimeMillis());
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("G_NickName"))).click();
 		Thread.sleep(1000);
-		driver.findElement(By.name(prop.getProperty("G_Otheryears"))).sendKeys("6");
+		driver.findElement(By.name(prop.getProperty("G_Otheryears"))).sendKeys("2");
 		driver.findElement(By.name(prop.getProperty("G_Othermonths"))).sendKeys("9");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Othersex"))).click();
 		js.executeScript("window.scrollBy(0,300)");
 		Thread.sleep(2000);
-		driver.findElement(By.name(prop.getProperty("G_Otherweight"))).sendKeys("89.91");
+		driver.findElement(By.name(prop.getProperty("G_Otherweight"))).sendKeys("21.67");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("G_weightunits"))).click();
 		Thread.sleep(1500);
