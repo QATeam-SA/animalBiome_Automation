@@ -1,9 +1,5 @@
 package testcase;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +12,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -64,27 +59,6 @@ public class User_Others_Regsample_Addpet {
 		breed.selectByVisibleText("Dorper");
 		Thread.sleep(1500);
 		js.executeScript("window.scrollBy(0,200)");
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).
-		 * click();
-		 * 
-		 * Thread.sleep(5000);
-		 * 
-		 * Robot rb = new Robot(); rb.delay(2000);
-		 * 
-		 * StringSelection ss = new StringSelection(prop.getProperty("Upload_other"));
-		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
-		 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
-		 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
-		 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000); driver.switchTo(); Actions
-		 * act = new Actions(driver); WebElement ele =
-		 * driver.findElement(By.xpath(prop.getProperty("G_Drag_&_drop")));
-		 * Thread.sleep(2000); act.dragAndDropBy(ele, -40, 0).perform();
-		 * Thread.sleep(2000); js.executeScript("window.scrollBy(0,500)", "");
-		 * driver.findElement(By.xpath(prop.getProperty("G_Submit"))).click();
-		 * Thread.sleep(3000); js.executeScript("window.scrollBy(0,200)");
-		 */
 		Thread.sleep(1000);
 		driver.findElement(By.id(prop.getProperty("G_PetName")))
 				.sendKeys((prop.getProperty("G_pet_Oname")) + "_" + System.currentTimeMillis());

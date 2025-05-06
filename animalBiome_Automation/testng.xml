@@ -162,7 +162,9 @@
 	</test>
 	<test thread-count="5" name="Register_Sample_Others_5" enabled="true">
 		<classes>
-			<class name="testcase.User_Others_Regsample_Addpet"/>
+			<!--<class name="testcase.User_Others_Regsample_Addpet"/>
+			<class name="testcase.User_Others_Regsample_Gut"/>-->
+			<class name="testcase.User_Others_Regsample_Oral"/>
 	</classes>
 	</test>
 	<test thread-count="5" name="Home_Page[Dashboard]_6" enabled="false">
