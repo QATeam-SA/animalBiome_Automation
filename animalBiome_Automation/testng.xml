@@ -172,8 +172,21 @@
 		<classes>
 		<class name="testcase.Deactivate_Horse_From_GridView" />
 		<class name="testcase.Deactivate_Horse_From_ListView" />
+		<class name="testcase.View_Horse_Gridview_DP" />
+		<class name="testcase.View_Horse_Listview_DP" />
+		<class name="testcase.AllReport_Horse_Dp" />
+		<class name="testcase.DeleteGridView_Horse_DP" />
+		<class name="testcase.DeleteListView_Horse_DP" />
 		
 		</classes>
 		</test>
 		
+		<test thread-count="5" name="HomePage_Dashboard_7" enabled="true">
+		<classes>
+		<class name="testcase.SearchBar" />
+		<class name="testcase.ListView_and_GridView" />
+		<class name="testcase.Pagination" />
+		<class name="testcase.Openning_Horse_Reports" />
+		</classes>
+		</test>
 </suite> 
