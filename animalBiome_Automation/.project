@@ -27,4 +27,15 @@
 			<location>C:/Users/vjasmitha/Desktop/cat and dog images/Dog &amp; Cat/Cat1.jpg</location>
 		</link>
 	</linkedResources>
+	<filteredResources>
+		<filter>
+			<id>1745842493426</id>
+			<name></name>
+			<type>30</type>
+			<matcher>
+				<id>org.eclipse.core.resources.regexFilterMatcher</id>
+				<arguments>node_modules|\.git|__CREATED_BY_JAVA_LANGUAGE_SERVER__</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>

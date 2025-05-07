@@ -31,7 +31,7 @@ public class Other_WithImage_VetDetails {
 	Logger logger = LogManager.getLogger(Other_WithImage_VetDetails.class);
 
 	@Test(priority = 16, enabled = true)
-	public void OtherSpeciesWithoutImageandVet() throws Exception {
+	public void OtherSpeciesWithImageandVet() throws Exception {
 
 		// ------- MY PET---------
 
