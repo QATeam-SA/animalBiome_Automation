@@ -10,17 +10,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
-public class Other_WithoutImage_None {
+public class Add_Others_None {
 
 	WebDriver driver = Instance.getInstance();
-	Properties prop = PropertiesFile.readPropertyFile("Other_WithoutImage_None.properties");
-	Logger logger = LogManager.getLogger(Other_WithoutImage_None.class);
+	Properties prop = PropertiesFile.readPropertyFile("Add_Others_None.properties");
+	Logger logger = LogManager.getLogger(Add_Others_None.class);
 
 	@Test(priority = 15, enabled = true)
-	public void OtherSpeciesWithoutImageandNone() throws Exception {
+	public void AddingOtherSpeciesWithNone() throws Exception {
 
 		// ------- MY PET---------
 
@@ -48,10 +49,17 @@ public class Other_WithoutImage_None {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,200)");
 		Thread.sleep(1000);
-		driver.findElement(By.id(prop.getProperty("G_PetName")))
-				.sendKeys((prop.getProperty("G_pet_Oname")) + "_" + System.currentTimeMillis());
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("G_NickName"))).click();
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Others";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Others_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("G_Others_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.name(prop.getProperty("G_Otheryears"))).sendKeys("3");
 		driver.findElement(By.name(prop.getProperty("G_Othermonths"))).sendKeys("10");

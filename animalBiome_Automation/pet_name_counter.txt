@@ -1,5 +1,10 @@
 Thunder=2
+Cattle=3
 fury=1
 Ryder=2
+Bird=4
+Rabbit=3
+Primate=3
+Sheep=3
 Bandit=1
 scout=1

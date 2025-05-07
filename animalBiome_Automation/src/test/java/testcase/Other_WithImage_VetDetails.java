@@ -22,6 +22,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -91,10 +92,17 @@ public class Other_WithImage_VetDetails {
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(0,200)");
 		Thread.sleep(1000);
-		driver.findElement(By.id(prop.getProperty("G_PetName")))
-				.sendKeys((prop.getProperty("G_pet_Oname")) + "_" + System.currentTimeMillis());
-		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("G_NickName"))).click();
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Others";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Others_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("G_Others_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.name(prop.getProperty("G_Otheryears"))).sendKeys("6");
 		driver.findElement(By.name(prop.getProperty("G_Othermonths"))).sendKeys("9");
