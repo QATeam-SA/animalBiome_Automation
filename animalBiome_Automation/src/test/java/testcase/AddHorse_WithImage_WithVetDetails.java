@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -32,7 +34,7 @@ public class AddHorse_WithImage_WithVetDetails {
 	Properties prop = PropertiesFile.readPropertyFile("AddHorse_WithImage_WithVetDetails.properties");
 
 	@Test(enabled = true)
-	public void AddingHorsePetDetails() throws InterruptedException, AWTException {
+	public void AddingHorsePetDetails() throws InterruptedException, AWTException, IOException {
 		Thread.sleep(4000);
 		logger.info("***** Adding a horse with all details in my pet section*******");
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -66,21 +68,32 @@ public class AddHorse_WithImage_WithVetDetails {
 		WebElement ele = driver.findElement(By.xpath(prop.getProperty("NDrag_&_drop")));
 		Thread.sleep(2000);
 		act.dragAndDropBy(ele, 30, 20).perform();
-		Thread.sleep(2000);
+		Thread.sleep(1500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)", "");
 		driver.findElement(By.xpath(prop.getProperty("N_H_Submit"))).click();
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(0,300)", "");
 		driver.findElement(By.xpath(prop.getProperty("NselectBreed"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("N_Horse_Name")))
-				.sendKeys((prop.getProperty("N_Enter_Horse_Name")) + "_" + System.currentTimeMillis());
-		Thread.sleep(3000);
+		Thread.sleep(2000);
+		
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Horse";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
+		
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age"));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Months"))).sendKeys(prop.getProperty("N_enter_Month"));
 		Thread.sleep(1000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -89,22 +102,22 @@ public class AddHorse_WithImage_WithVetDetails {
 		Select horseSexSelect = new Select(dropdown);
 		horseSexSelect.selectByIndex(1);
 
-		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("N_weight"))).sendKeys("92");
 		Thread.sleep(2000);
+		driver.findElement(By.xpath(prop.getProperty("N_weight"))).sendKeys("92");
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_kg_lbs"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_Primary_Dis"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_select_Dis"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_Dis_Type"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("N_Cold_Breaking"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Cold_Breaking_Text")))
 				.sendKeys(prop.getProperty("N_CB_Enter_text"));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_street"))).sendKeys(prop.getProperty("N_Enter_street"));
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_city"))).sendKeys(prop.getProperty("N_Enter_City"));
@@ -160,7 +173,7 @@ public class AddHorse_WithImage_WithVetDetails {
 		Thread.sleep(2000);
 		driver.switchTo() /* frame("kustomer-ui-sdk-iframe") */ ;
 		driver.findElement(By.xpath(prop.getProperty("N_Timeframe_Type"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		jse.executeScript("window.scrollBy(0,200)");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Suppliment_Yes"))).click();
@@ -169,7 +182,7 @@ public class AddHorse_WithImage_WithVetDetails {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_Suppliment_Brand")))
 				.sendKeys(prop.getProperty("N_enter_Brand"));
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Suppliment_type")))
 				.sendKeys(prop.getProperty("N_product_Type"));
 		Thread.sleep(2000);

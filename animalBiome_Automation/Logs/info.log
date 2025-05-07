@@ -74,3 +74,19 @@
 17:21:53.670 [main] INFO  testcase.Signin_Existinguser - ***** Log in successfully *******
 12:03:16.424 [main] INFO  testcase.Signin_Existinguser - ***** pop up Accessed successfully *******
 12:03:19.804 [main] INFO  testcase.Signin_Existinguser - ***** Log in successfully *******
+15:06:44.433 [main] INFO  testcase.Signin_Existinguser - ***** pop up Accessed successfully *******
+15:06:48.564 [main] INFO  testcase.Signin_Existinguser - ***** Log in successfully *******
+15:07:09.214 [main] INFO  testcase.Add_Pet_Button_Horse - Add pet button clicked successfully
+15:07:13.243 [main] INFO  testcase.AddHorse_NoImage_NoVetDetails - ***** Adding a horse with all details in my pet section*******
+15:08:06.819 [main] INFO  testcase.AddHorse_NoImage_NoVetDetails - ***** My Pet details of horse has been added successfully *******
+15:08:08.839 [main] INFO  testcase.AddHorse_NoImage_NoVetDetails - ***** Adding a horse with all details in pet Health section*******
+15:11:23.005 [main] INFO  testcase.AddHorse_NoImage_NoVetDetails - ***** Horse added successfully with all details w/o image & vet *******
+15:11:27.021 [main] INFO  testcase.AddHorse_WithImage_NoVetDetails - ***** Adding a horse with all details in my pet section*******
+15:12:44.908 [main] INFO  testcase.AddHorse_WithImage_NoVetDetails - ***** My Pet details of horse has been added successfully *******
+15:12:46.925 [main] INFO  testcase.AddHorse_WithImage_NoVetDetails - ***** Adding a horse with all details in pet Health section*******
+15:16:07.124 [main] INFO  testcase.AddHorse_WithImage_NoVetDetails - ***** Horse added successfully with all details w/o image & vet *******
+15:16:11.134 [main] INFO  testcase.AddHorse_WithImage_WithVetDetails - ***** Adding a horse with all details in my pet section*******
+15:17:27.903 [main] INFO  testcase.AddHorse_WithImage_WithVetDetails - ***** My Pet details of horse has been added successfully *******
+15:17:29.910 [main] INFO  testcase.AddHorse_WithImage_WithVetDetails - ***** Adding a horse with all details in pet Health section*******
+15:20:41.358 [main] INFO  testcase.AddHorse_WithImage_WithVetDetails - ***** Horse pet health section has been added with all details *******
+15:20:45.368 [main] INFO  testcase.AddHorse_WithImage_WithVetDetails - ***** Vet details adding process has been started *******
