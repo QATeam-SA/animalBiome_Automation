@@ -68,7 +68,7 @@ public class Others_Share_pet_Profile_Private {
 		driver.get(typedText);
 		Thread.sleep(4000); 
 		driver.close(); 
-		logger.info("public cat profile is successfull");
+		logger.info("public Others pet profile is shared successfull");
 		driver.switchTo().window(tabs.get(0)); 
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_closebutton"))).click();

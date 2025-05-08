@@ -47,7 +47,7 @@ public class User_Others_OpeningReports {
 			    lastHeight = newHeight;
 			}
 			jse.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 			WebElement innerScrollDiv = driver.findElement(By.xpath(prop.getProperty("j_innerscroll"))); // Replace selector
 	        jse.executeScript("arguments[0].scrollTop = 400;", innerScrollDiv); // Vertical scroll
 	        Thread.sleep(1000);

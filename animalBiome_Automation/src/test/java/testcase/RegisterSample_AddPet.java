@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -16,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -24,15 +26,11 @@ public class RegisterSample_AddPet {
 	Properties prop = PropertiesFile.readPropertyFile("RegisterSample_AddPet.properties");
 	Logger logger = LogManager.getLogger(RegisterSample_AddPet.class);
 	@Test(priority = 10, enabled = true)
-	public void AddingDogThroughSampleRegistration() throws InterruptedException, AWTException {
-		Thread.sleep(8000);
-		driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();
-		Thread.sleep(10000);
-		driver.findElement(By.xpath(prop.getProperty("N_Pet_PortalHome"))).click();
+	public void AddingDogThroughSampleRegistration() throws InterruptedException, AWTException, IOException {
 		Thread.sleep(2000);
+		driver.findElement(By.xpath(prop.getProperty("N_register_sample"))).click();
+		Thread.sleep(1000);
 		logger.info("***** Started adding pet *******");
-		driver.findElement(By.xpath(prop.getProperty("Nregister_sample"))).click();
-		Thread.sleep(10000);
 		driver.findElement(By.xpath(prop.getProperty("N_addpet"))).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("N_Profile_Picture"))).click();
@@ -68,9 +66,17 @@ public class RegisterSample_AddPet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("Nbreed"))).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("NP_Name"))).sendKeys(prop.getProperty("NPet_Name"));
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("NP_Name_R"))).click();
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Dog";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Dog_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("G_Dog_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age_Y"));
 		Thread.sleep(2000);
@@ -168,28 +174,6 @@ public class RegisterSample_AddPet {
 		driver.findElement(By.xpath(prop.getProperty("N_Dry"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Symtoms_None"))).click();
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("N_Wet"))).click();
-		 * Thread.sleep(2000);
-		 */
-
-		/*
-		 * driver.findElement(By.xpath(prop.getProperty("N_Symptoms"))).click();
-		 * Thread.sleep(2000);
-		 * driver.findElement(By.xpath(prop.getProperty("N_GiConcern"))).click();
-		 * Thread.sleep(2000);
-		 * driver.findElement(By.xpath(prop.getProperty("N_Symptom_Cons"))).click();
-		 * Thread.sleep(2000); WebElement e =
-		 * driver.findElement(By.xpath(prop.getProperty("N_CS"))); Select ss = new
-		 * Select(e); Thread.sleep(2000); ss.selectByIndex(2); Thread.sleep(2000);
-		 * WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-		 * WebElement e1 =
-		 * wait.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty(
-		 * "N_CF")))); Select sf = new Select(e1); Thread.sleep(4000);
-		 * ss.selectByIndex(3); Thread.sleep(2000);
-		 * driver.findElement(By.xpath(prop.getProperty("N_Current_CD"))).sendKeys(prop.
-		 * getProperty("N_CD_Notes"));
-		 */
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_PH_Next"))).click();
 		logger.info("***** My Pet health details has been added successfully *******");

@@ -20,7 +20,7 @@ public class User_Others_Allreports_DP {
 	Properties prop = PropertiesFile.readPropertyFile("User_Others_Allreports_DP.properties");
 	
 	@Test(priority=14,enabled=true)
-	public void DeletingOtherDeactivatedPetInListView() throws InterruptedException 
+	public void ViweingAllReportsOfADeactivatedPet() throws InterruptedException 
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;

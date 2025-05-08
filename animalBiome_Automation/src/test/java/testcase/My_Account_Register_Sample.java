@@ -1,6 +1,11 @@
 package testcase;
 
 import java.awt.AWTException;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,9 +14,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -21,21 +29,36 @@ public class My_Account_Register_Sample {
 	Logger logger = LogManager.getLogger(My_Account_Register_Sample.class);
 
 	@Test(priority = 15, enabled = true)
-		public void RegisterGutSampleThroughMyAccount() throws InterruptedException, AWTException {
-		logger.info("***** Gut sample registration process has been started*******");
+		public void RegisterGutSampleThroughMyAccount() throws InterruptedException, AWTException, IOException {
+		logger.info("***** Dog Gut sample registration process has been started*******");
 		    Thread.sleep(8000);
 		    driver.findElement(By.xpath(prop.getProperty("Nmyaccount"))).click();
 		    Thread.sleep(2000);
 		    driver.findElement(By.xpath(prop.getProperty("N_Register_Sample"))).click();
-		    Thread.sleep(4000);
-			WebElement e =driver.findElement(By.xpath(prop.getProperty("N_select_pet")));
-			Select ss = new Select(e);
-			 Thread.sleep(2000);
-			ss.selectByVisibleText("Athena");
+		    Thread.sleep(2000);
+		    JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("window.scrollBy(0,400)");
+			Thread.sleep(1500);
+			
+			String excelPath = PropertiesFile.getExcelFilePath();
+			String sheetName = PropertiesFile.getPetExcelSheetName();
+			ExcelUtils.loadExcelFile(excelPath, sheetName);
+			
+			String petName = ExcelUtils.getAvailablePetName("User_Dog");
+
+			if (petName != null) {
+			    
+				Select dropdown = new Select(driver.findElement(By.xpath(prop.getProperty("N_select_pet"))));
+				dropdown.selectByVisibleText(petName);
+			    Thread.sleep(2000); 
+			    ExcelUtils.deletePetNameFromSpeciesColumn("User_Dog", petName);
+			} else {
+			    System.out.println("No available pet name found in User_Dog column!");
+			}
 			Thread.sleep(2000);
 			WebElement e1 =driver.findElement(By.xpath(prop.getProperty("N_Sample")));
 			Select st = new Select(e1);
-			 Thread.sleep(2000);
+			Thread.sleep(2000);
 			st.selectByIndex(1);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_Fecal_C"))).click();
@@ -44,23 +67,51 @@ public class My_Account_Register_Sample {
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_T_submision"))).click();
 			Thread.sleep(4000);
-			driver.findElement(By.xpath(prop.getProperty("N_Sample_ID"))).sendKeys(prop.getProperty("N_Enter_SampleID"));
-			Thread.sleep(4000);
-			driver.findElement(By.xpath(prop.getProperty("N_Calender"))).click();
-			Thread.sleep(10000);
-			driver.switchTo();
-			driver.findElement(By.xpath(prop.getProperty("N_Date"))).click();
+			jse.executeScript("window.scrollBy(0,400)");
+			Thread.sleep(1500);
+			String excelPath1 = PropertiesFile.getExcelFilePath();
+			String sheetName1 = PropertiesFile.getExcelSheetName();
+
+			ExcelUtils.loadExcelFile(excelPath1, sheetName1);
+
+			String sampleId = ExcelUtils.getNextSample("User_Dog_Gut");
+			System.out.println("Fetched Sample ID: " + sampleId);
+
+			driver.findElement(By.xpath(prop.getProperty("N_Sample_ID"))).sendKeys(sampleId);
+
+			Thread.sleep(6000);
+			try {
+				LocalDate currentDate = LocalDate.now();
+				String currentDay = String.valueOf(currentDate.getDayOfMonth());
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+				String formattedDate = currentDate.format(formatter);
+
+				WebElement dateField = driver.findElement(By.xpath("//input[@id='flatpickr']"));
+				dateField.click();
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.backdrop.full-screen")));
+				List<WebElement> dates = driver.findElements(By.xpath("//span[@aria-label='" + formattedDate + "']"));
+
+				for (WebElement date : dates) {
+					if (date.getText().equals(currentDay)) {
+						date.click();
+						break;
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			Thread.sleep(4000);
 			driver.findElement(By.xpath(prop.getProperty("N_Next_B"))).click();
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_Complete"))).click();
 			Thread.sleep(9000);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("window.scrollBy(0,200)");
+			jse.executeScript("window.scrollBy(0,200)");
 			Thread.sleep(10000);
 			driver.findElement(By.xpath(prop.getProperty("N_viewPortal"))).click();
 			Thread.sleep(3000);
-			WebElement titleValidation = driver.findElement(By.xpath("//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"));
+			WebElement titleValidation = driver.findElement(By.xpath(
+					"//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"));
 
 			String expectedText = "Your pet's sample has been successfully registered.";
 			String actualText = titleValidation.getText();
@@ -68,18 +119,8 @@ public class My_Account_Register_Sample {
 				System.out.println("Both Text are Same. The title is" + actualText);
 			} else {
 				System.out.println("Both Text are not Same. The dispalyed text is" + actualText);
-			}
-			logger.info("***** Gut sample registration process has been completed******");
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		}
+			logger.info("***** Dog Gut sample registration process has been completed******");			
 		}
 }
 

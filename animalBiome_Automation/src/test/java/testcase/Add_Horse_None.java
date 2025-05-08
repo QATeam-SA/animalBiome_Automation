@@ -54,7 +54,6 @@
 
 			ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 
-			
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age"));
 			Thread.sleep(1500);
