@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
@@ -22,6 +23,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -31,7 +33,7 @@ public class My_Account_UserProfile_AddPet {
 	Logger logger = LogManager.getLogger(My_Account_UserProfile_AddPet.class);
 
 	@Test(priority = 20, enabled = true)
-	public void ClickingUserPofileFromMyAccntAndAddingAPet() throws InterruptedException, AWTException {
+	public void ClickingUserPofileFromMyAccntAndAddingAPet() throws InterruptedException, AWTException, IOException {
 		logger.info("***** Started going to My account user profile & adding pet *******");
 		Thread.sleep(8000);
 		driver.findElement(By.xpath(prop.getProperty("N_myaccount"))).click();
@@ -61,7 +63,7 @@ public class My_Account_UserProfile_AddPet {
 		rb.delay(2000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
-		WebElement ele = driver.findElement(By.xpath(prop.getProperty("NDrag_&_drop")));
+		WebElement ele = driver.findElement(By.xpath(prop.getProperty("N_Drag_&_drop")));
 		Thread.sleep(2000);
 		act.dragAndDropBy(ele, 30, 20).perform();
 		Thread.sleep(2000);
@@ -74,9 +76,17 @@ public class My_Account_UserProfile_AddPet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("Nbreed"))).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("NP_Name"))).sendKeys(prop.getProperty("NPet_Name"));
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("NP_Name_R"))).click();
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Dog";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Dog_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("G_Dog_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age_Y"));
 		Thread.sleep(2000);
@@ -113,7 +123,7 @@ public class My_Account_UserProfile_AddPet {
 		js.executeScript("window.scrollBy(0,500)", "");
 		Thread.sleep(2000);
 		List<WebElement> a = driver.findElements(By.xpath(prop.getProperty("N_Antibiotics_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A1 : a) {
 			A1.click();
 			Thread.sleep(1000);
@@ -125,9 +135,9 @@ public class My_Account_UserProfile_AddPet {
 		driver.findElement(By.xpath(prop.getProperty("N_Medication"))).click();
 		Thread.sleep(3000);
 		js.executeScript("window.scrollBy(0,400)", "");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		List<WebElement> m = driver.findElements(By.xpath(prop.getProperty("N_Medications_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A2 : m) {
 			A2.click();
 			Thread.sleep(1000);
@@ -136,28 +146,28 @@ public class My_Account_UserProfile_AddPet {
 		driver.findElement(By.xpath(prop.getProperty("N_MM_C/P"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_supplement"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		List<WebElement> s = driver.findElements(By.xpath(prop.getProperty("N_Suppliments_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A3 : s) {
 			A3.click();
 			Thread.sleep(1000);
 		}
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Insulin"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Fos"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_PHusk"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_FBlend"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Other"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_AbSupplements"))).click();
 		Thread.sleep(2000);
 		List<WebElement> abs = driver.findElements(By.xpath(prop.getProperty("N_Ab_Supplements_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A4 : abs) {
 			A4.click();
 			Thread.sleep(1000);
@@ -170,7 +180,7 @@ public class My_Account_UserProfile_AddPet {
 		driver.findElement(By.xpath(prop.getProperty("N_Physicalcondition"))).click();
 		Thread.sleep(3000);
 		List<WebElement> pcm = driver.findElements(By.xpath(prop.getProperty("N_Physical_main_List")));
-		Thread.sleep(3000);
+		Thread.sleep(000);
 		for (WebElement A5 : pcm) {
 			A5.click();
 			Thread.sleep(1000);
@@ -184,14 +194,14 @@ public class My_Account_UserProfile_AddPet {
 		}
 		Thread.sleep(3000);
 		List<WebElement> pcn1 = driver.findElements(By.xpath(prop.getProperty("N_Psy_Condition_Remain")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A7 : pcn1) {
 			A7.click();
 			Thread.sleep(1000);
 		}
 		Thread.sleep(3000);
 		List<WebElement> pcn2 = driver.findElements(By.xpath(prop.getProperty("N_Phsy_Condition_Nested_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A8 : pcn2) {
 
 			if (!A8.isSelected()) {
@@ -207,9 +217,9 @@ public class My_Account_UserProfile_AddPet {
 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Diet"))).click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		List<WebElement> Diet = driver.findElements(By.xpath(prop.getProperty("N_Diet_List")));
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		for (WebElement A9 : Diet) {
 
 			if (!A9.isSelected()) {
@@ -218,7 +228,7 @@ public class My_Account_UserProfile_AddPet {
 			}
 
 		}
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		List<WebElement> DC = driver.findElements(By.xpath(prop.getProperty("N_Diet_List")));
 		Thread.sleep(2000);
 		for (WebElement A10 : DC) {
@@ -231,7 +241,7 @@ public class My_Account_UserProfile_AddPet {
 		}
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Symptoms"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		List<WebElement> symp = driver.findElements(By.xpath(prop.getProperty("N_Main_Symptoms")));
 		Thread.sleep(2000);
 		for (WebElement A11 : symp) {

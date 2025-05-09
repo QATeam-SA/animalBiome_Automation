@@ -5,6 +5,7 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
@@ -19,6 +20,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -28,7 +30,7 @@ public class Cat_Img_VetDetails {
 	Logger logger = LogManager.getLogger(Cat_Img_VetDetails.class);
 
 	@Test(priority = 4, enabled = true)
-	public void AddingACatWithImageAndVetDetails() throws InterruptedException, AWTException
+	public void AddingACatWithImageAndVetDetails() throws InterruptedException, AWTException, IOException
 	{
 		logger.info("Started adding mypet details");
 		Thread.sleep(8000);
@@ -69,7 +71,17 @@ public class Cat_Img_VetDetails {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("j_breeds"))).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("j_petname"))).sendKeys((prop.getProperty("j_petname_rpt")) + "_" + System.currentTimeMillis());
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Cat";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("j_Enter_Cat_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("j_Cat_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("j_Age_Years"))).sendKeys(prop.getProperty("j_enter_Age"));
 		Thread.sleep(1000);
