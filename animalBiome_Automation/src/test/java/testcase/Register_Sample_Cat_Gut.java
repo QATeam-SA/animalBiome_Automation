@@ -100,15 +100,17 @@ public class Register_Sample_Cat_Gut {
 			e.printStackTrace();
 		}
 	    Thread.sleep(3000);
+	    jse.executeScript("window.scrollBy(0,700)");
+	    Thread.sleep(3000);
 	    driver.findElement(By.xpath(prop.getProperty("j_next_btn"))).click();
 	    Thread.sleep(3000);
 	    jse.executeScript("window.scrollBy(0,700)");
 	    Thread.sleep(6000);
 	    driver.findElement(By.xpath(prop.getProperty("j_complete_btn"))).click();
-	    Thread.sleep(9000);
-		jse.executeScript("window.scrollBy(0,200)");
-		Thread.sleep(10000);
-	    driver.findElement(By.xpath(prop.getProperty("j_view_petportal"))).click();
+	    WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement hp =wait4
+                .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("j_view_petportal"))));
+        hp.click();
 	    Thread.sleep(3000);
 	    logger.info("Gut sample registration process has been completed");
 		

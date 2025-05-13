@@ -24,12 +24,7 @@ public class Deactivate_Cat {
 		  JavascriptExecutor jse = (JavascriptExecutor) driver;
 		
 		  //deactivate pet from grid view 
-		 // driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("dido4"); 
 		  Thread.sleep(4000);
-			/*
-			 * driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
-			 * Thread.sleep(8000);
-			 */ 
 		  WebElement targetelement =driver.findElement(By.xpath(prop.getProperty("j_mousehover"))); 
 		  Actions action = new Actions(driver); 
 		  action.moveToElement(targetelement).perform();
@@ -59,12 +54,6 @@ public class Deactivate_Cat {
 		  driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		  Thread.sleep(4000); 
 		  jse.executeScript("window.scrollBy(0,200)");
-			/*
-			 * Thread.sleep(4000);
-			 * driver.findElement(By.xpath(prop.getProperty("j_petsearch_userprofile"))).
-			 * sendKeys("dido4"); Thread.sleep(4000);
-			 * driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
-			 */
 		  Thread.sleep(8000); 
 		  WebElement targetelement1 =driver.findElement(By.xpath(prop.getProperty("j_mousehover"))); 
 		  Actions action1 = new Actions(driver);
