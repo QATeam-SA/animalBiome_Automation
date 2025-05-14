@@ -35,6 +35,9 @@ public class Cat_View_AllReports {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_viewbutton"))).click();
 		Thread.sleep(5000);
+		jse.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(5000);
+		jse.executeScript("window.scrollBy(0,-500)");
 		logger.info("clicked on the view button from pet portal home of the pet");
 		
 		//clicking on the all reports button
@@ -48,7 +51,7 @@ public class Cat_View_AllReports {
 		logger.info("clicked on the allreports button from view pet details page");
 		
 		// clicking on the Report button 
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("sera");
 		Thread.sleep(4000);
 		driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
@@ -59,7 +62,7 @@ public class Cat_View_AllReports {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_reportbutton"))).click();
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(prop.getProperty("petportalhome"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
 		logger.info("clicked on the report button from pet portal home of the pet");
 	}
 	

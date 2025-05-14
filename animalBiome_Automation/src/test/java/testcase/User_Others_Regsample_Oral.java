@@ -41,21 +41,23 @@ public class User_Others_Regsample_Oral {
 		
 		String petName = ExcelUtils.getAvailablePetName("User_Others");
 
-		if (petName != null) {
+		/*if (petName != null) {*/
 		    
 			Select dropdown = new Select(driver.findElement(By.xpath(prop.getProperty("j_select_pet"))));
+			Thread.sleep(4000);
 			dropdown.selectByVisibleText(petName);
 		    Thread.sleep(2000); 
 		    ExcelUtils.deletePetNameFromSpeciesColumn("User_Others", petName);
-		} else {
-		    System.out.println("No available pet name found in User_Others column!");
-		}
+			/*
+			 * } else {
+			 * System.out.println("No available pet name found in User_Others column!"); }
+			 */
 		Thread.sleep(2000);
 		jse.executeScript("window.scrollBy(0,200)");
-		WebElement e1 =driver.findElement(By.xpath(prop.getProperty("j_sample")));
-		Select st = new Select(e1);
+		WebElement e2 =driver.findElement(By.xpath(prop.getProperty("j_sample")));
+		Select st1 = new Select(e2);
 		 Thread.sleep(2000);
-		st.selectByIndex(2);
+		st1.selectByIndex(2);
 		Thread.sleep(3000);
 		jse.executeScript("window.scrollBy(0,200)");
 		driver.findElement(By.xpath(prop.getProperty("j_test_submission"))).click();

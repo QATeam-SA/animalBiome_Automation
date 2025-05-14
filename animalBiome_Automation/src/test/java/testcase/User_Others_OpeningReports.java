@@ -7,7 +7,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import base.Instance;
@@ -48,16 +47,25 @@ public class User_Others_OpeningReports {
 			}
 			jse.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
 			Thread.sleep(5000);
-			WebElement innerScrollDiv = driver.findElement(By.xpath(prop.getProperty("j_innerscroll"))); // Replace selector
-	        jse.executeScript("arguments[0].scrollTop = 400;", innerScrollDiv); // Vertical scroll
-	        Thread.sleep(1000);
+			
+			/*
+			 * WebElement scrollableDiv = driver.findElement(By.
+			 * xpath("//div[@class='col-xs-2 col-sm-2 col-md-2 col-lg-2 p-0 left_scrollBar hidden-xs ng-tns-c14-0 ng-star-inserted']"
+			 * ));
+			 * 
+			 * JavascriptExecutor js = (JavascriptExecutor) driver;
+			 * 
+			 * // Scroll down inside the element by 300 pixels
+			 * js.executeScript("arguments[0].scrollTop = arguments[0].scrollTop + 300;",
+			 * scrollableDiv); Thread.sleep(2000);
+			 */
 	        driver.findElement(By.xpath(prop.getProperty("j_reg_details"))).click();
 			Thread.sleep(3000);
 			jse.executeScript("window.scrollBy(0,700)");
 			Thread.sleep(3000);
 			jse.executeScript("window.scrollBy(0,-700)");
 			Thread.sleep(2000);
-			jse.executeScript("arguments[0].scrollTop = -200;", innerScrollDiv);
+			//js.executeScript("arguments[0].scrollTop = -200;", scrollableDiv);
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(prop.getProperty("j_share_report"))).click();
 			Thread.sleep(2000);

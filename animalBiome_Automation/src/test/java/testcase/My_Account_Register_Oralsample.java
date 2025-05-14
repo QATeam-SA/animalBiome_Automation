@@ -29,7 +29,7 @@ public class My_Account_Register_Oralsample {
 		
 		@Test(priority=11,enabled=true)
 		public void RegisteringOralSampleThroughMyAccount() throws InterruptedException, IOException {
-			Thread.sleep(4000);
+			Thread.sleep(10000);
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 			logger.info("Oral sample registration process has been started");
 			driver.findElement(By.xpath(prop.getProperty("j_myaccount"))).click();

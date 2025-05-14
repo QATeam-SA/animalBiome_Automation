@@ -31,21 +31,14 @@ public class Deactivate_Cat {
 		  Thread.sleep(4000);
 		  driver.findElement(By.xpath(prop.getProperty("j_deactivatebtn"))).click();
 		  Thread.sleep(4000);
-		  driver.findElement(By.xpath(prop.getProperty("j_search_clearbtn"))).click();
 		  logger.info("deactivated the pet in grid view");
 		  
 		  //deactivate pet from list view
 		  Thread.sleep(4000);
 		  driver.findElement(By.xpath(prop.getProperty("j_listview"))).click();
 		  Thread.sleep(4000);
-		  driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("dido3"); 
-		  Thread.sleep(4000);
-		  driver.findElement(By.name(prop.getProperty("searchbutton"))).click();
-		  Thread.sleep(8000);
 		  driver.findElement(By.xpath(prop.getProperty("j_deactivebtn_listview"))).click(); 
 		  Thread.sleep(6000);
-		  driver.findElement(By.xpath(prop.getProperty("j_search_clearbtn"))).click();
-		  Thread.sleep(5000);
 		  logger.info("deactivated the pet in list view");
 		 
 		  //view deactivated pet grid view

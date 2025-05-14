@@ -31,8 +31,9 @@ public class Userprofile_searchbtn {
 		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("terex");
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();	
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(prop.getProperty("j_clearsearch"))).click();	
+		Thread.sleep(6000);
+		driver.findElement(By.xpath(prop.getProperty("j_clearsearch"))).click();
+		Thread.sleep(6000);
 		logger.info("Search button is clicked succesfully");
 	}
 	

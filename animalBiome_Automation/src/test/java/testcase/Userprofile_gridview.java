@@ -48,7 +48,7 @@ public class Userprofile_gridview {
 		logger.info("view pet details is successfull");
 		driver.navigate().back();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_petportlhome"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
 	
 		//edit pet details
 		Thread.sleep(4000);
@@ -76,7 +76,7 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_cmpltebtn"))).click();
 		Thread.sleep(3000);
 		logger.info("Edit pet details is successfull");
-		driver.findElement(By.xpath(prop.getProperty("j_viewpoertalbtn"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_viewpetportalbtn"))).click();
 		
 		//delete pet in grid view in userprofile
 		Thread.sleep(4000);
@@ -91,8 +91,8 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_delbtn_uprfl"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_del_popup"))).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("j_petportlhome"))).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
 		logger.info("pet deleted successfully");	
 	}	
 }

@@ -29,7 +29,7 @@ public class Register_Sample_Cat_Oral {
 	
 	@Test(priority=9,enabled=true)
 	public void RegisteringOralSampleForACat() throws InterruptedException, IOException {
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		logger.info("Oral sample registration process has been started");
 		driver.findElement(By.xpath(prop.getProperty("j_reg_sample"))).click();

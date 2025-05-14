@@ -32,7 +32,7 @@ public class Register_Sample_Cat_Gut {
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		logger.info("Gut sample registration process has been started");
+		logger.info("Cat Gut sample registration process has been started");
 		driver.findElement(By.xpath(prop.getProperty("j_reg_sample"))).click();
 		Thread.sleep(2000);
 		jse.executeScript("window.scrollBy(0,200)");
@@ -99,20 +99,27 @@ public class Register_Sample_Cat_Gut {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	    Thread.sleep(3000);
-	    jse.executeScript("window.scrollBy(0,700)");
-	    Thread.sleep(3000);
-	    driver.findElement(By.xpath(prop.getProperty("j_next_btn"))).click();
-	    Thread.sleep(3000);
-	    jse.executeScript("window.scrollBy(0,700)");
-	    Thread.sleep(6000);
-	    driver.findElement(By.xpath(prop.getProperty("j_complete_btn"))).click();
-	    WebDriverWait wait4 = new WebDriverWait(driver, Duration.ofSeconds(15));
-        WebElement hp =wait4
-                .until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("j_view_petportal"))));
-        hp.click();
-	    Thread.sleep(3000);
-	    logger.info("Gut sample registration process has been completed");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(prop.getProperty("j_next_btn"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(prop.getProperty("j_complete_btn"))).click();
+		Thread.sleep(9000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,200)");
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(prop.getProperty("j_view_petportal"))).click();
+		Thread.sleep(3000);
+		WebElement titleValidation = driver.findElement(By.xpath(
+				"//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"));
+
+		String expectedText = "Your pet's sample has been successfully registered.";
+		String actualText = titleValidation.getText();
+		if (actualText.equals(expectedText)) {
+			System.out.println("Both Text are Same. The title is" + actualText);
+		} else {
+			System.out.println("Both Text are not Same. The dispalyed text is" + actualText);
+		}
+	    logger.info(" Cat Gut sample registration process has been completed");
 		
 	}
 }
