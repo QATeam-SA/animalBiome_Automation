@@ -78,15 +78,15 @@
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="EDIT PET_3" enabled="false">
+	<test thread-count="5" name="EDIT PET_CAT_3" enabled="false">
 		<classes>
 			<class name="testcase.Edit_CatDetails" />
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Registersample_Addpet_6" enabled="true">
+	<test thread-count="5" name="Registersample_Addpet_6" enabled="false">
 		<classes>
-			<!--<class name="testcase.RegisterSample_Addpet_Cat" />-->
+			<class name="testcase.RegisterSample_Addpet_Cat" />
 			<class name="testcase.Register_Sample_Cat_Gut" />
 			<class name="testcase.Register_Sample_Cat_Oral" />
 			<class name="testcase.My_Account_Register_Oralsample" />
@@ -100,7 +100,7 @@
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="VIEW_ALL REPORTS_2" enabled="false">
+	<test thread-count="5" name="VIEW_ALL REPORTS_CAT_2" enabled="false">
 		<classes>
 			<class name="testcase.Cat_View_AllReports" />
 		</classes>
@@ -112,7 +112,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="Myaccount_UserProfile_8" enabled="false">
+	<test thread-count="5" name="Myaccount_UserProfile_CAT_8" enabled="false">
 		<classes>
 			<class name="testcase.Userprofile_assesments" />
 			<!--<class name="testcase.Userprofile_pswd"/>-->
@@ -185,7 +185,7 @@
 		</classes>
 	</test>
 		
-	<test thread-count="5" name="Add_Others_1" enabled="false">
+	<test thread-count="5" name="Add_Others_1" enabled="true">
 		<classes>
 			<class name="testcase.Other_WithoutImage_WithVetDetails" />
 			<class name="testcase.Other_WithImage_WithoutVetDetails" />
@@ -194,14 +194,14 @@
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Edit_Others_details_3" enabled="false">
+	<test thread-count="5" name="Edit_Others_details_3" enabled="true">
 		<classes>
 			<class name="testcase.User_Others_Edit_Petdetails" />
 			<class name="testcase.User_Others_Edit_PetdetailsPP" />
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Register_Sample_Others_5" enabled="false">
+	<test thread-count="5" name="Register_Sample_Others_5" enabled="true">
 		<classes>
 			<class name="testcase.User_Others_Regsample_Addpet"/>
 			<class name="testcase.User_Others_Regsample_Gut"/>
@@ -209,20 +209,20 @@
 	</classes>
 	</test>
 	
-	<test thread-count="5" name="VIEW_ALL_REPORTS_2" enabled="false">
+	<test thread-count="5" name="VIEW_ALL_REPORTS_2" enabled="true">
 		<classes>
 			<class name="testcase.Others_View_All_Reports" />
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Share_othrs_pet_profile_4" enabled="false">
+	<test thread-count="5" name="Share_othrs_pet_profile_4" enabled="true">
 		<classes>
 			<class name="testcase.Others_Share_pet_Profile_Private"/>
 			<class name="testcase.Others_Share_pet_Profile_Public" />
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Home_Page[Dashboard]_6" enabled="false">
+	<test thread-count="5" name="Home_Page[Dashboard]_6" enabled="true">
 		<classes>
 			<class name="testcase.User_Others_Petsearchbar"/>
 			<class name="testcase.Others_List_Grid_Views" />
@@ -232,13 +232,13 @@
 		</classes>
 	</test>
 	
-	<test thread-count="5" name="Open_Reports_7" enabled="false">
+	<test thread-count="5" name="Open_Reports_7" enabled="true">
 		<classes>
 			<class name="testcase.User_Others_OpeningReports"/>
 			</classes>
 	</test>
 	
-	<test thread-count="5" name="Deactivate_pet_others_8" enabled="false">
+	<test thread-count="5" name="Deactivate_pet_others_8" enabled="true">
 		<classes>
 			<class name="testcase.User_Others_Deactivatepet_Gridview" />
 			<class name="testcase.User_Others_Deactivatepet_Listview" />

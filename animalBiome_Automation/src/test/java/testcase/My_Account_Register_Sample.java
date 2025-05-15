@@ -49,6 +49,7 @@ public class My_Account_Register_Sample {
 			if (petName != null) {
 			    
 				Select dropdown = new Select(driver.findElement(By.xpath(prop.getProperty("N_select_pet"))));
+				Thread.sleep(3000);
 				dropdown.selectByVisibleText(petName);
 			    Thread.sleep(2000); 
 			    ExcelUtils.deletePetNameFromSpeciesColumn("User_Dog", petName);

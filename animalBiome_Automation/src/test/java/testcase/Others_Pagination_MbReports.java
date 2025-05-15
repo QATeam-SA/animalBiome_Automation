@@ -35,6 +35,7 @@ public class Others_Pagination_MbReports {
 		jse.executeScript("window.scrollBy(0,300)");
 		driver.findElement(By.xpath(prop.getProperty("j_mbrpagination_Dbckwd"))).click();
 		Thread.sleep(4000);
+		jse.executeScript("window.scrollBy(0,-500)");
 		logger.info("Microbiome Reports paginations are clicked successfully");
 	}
 }

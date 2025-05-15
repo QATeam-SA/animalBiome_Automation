@@ -51,7 +51,7 @@ public class Cat_View_AllReports {
 		logger.info("clicked on the allreports button from view pet details page");
 		
 		// clicking on the Report button 
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 		driver.findElement(By.xpath(prop.getProperty("petsearch"))).sendKeys("sera");
 		Thread.sleep(4000);
 		driver.findElement(By.name(prop.getProperty("searchbutton"))).click();

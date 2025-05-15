@@ -27,9 +27,9 @@ public class RegisterSample_AddPet {
 	Logger logger = LogManager.getLogger(RegisterSample_AddPet.class);
 	@Test(priority = 10, enabled = true)
 	public void AddingDogThroughSampleRegistration() throws InterruptedException, AWTException, IOException {
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_register_sample"))).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		logger.info("***** Started adding pet *******");
 		driver.findElement(By.xpath(prop.getProperty("N_addpet"))).click();
 		Thread.sleep(5000);
