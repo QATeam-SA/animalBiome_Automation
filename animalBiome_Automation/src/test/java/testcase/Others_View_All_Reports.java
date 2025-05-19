@@ -53,6 +53,8 @@ public class Others_View_All_Reports {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
 		Thread.sleep(5000);
+		driver.navigate().back();
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
 		logger.info("clicked on the allreports button from view pet details page");
 		

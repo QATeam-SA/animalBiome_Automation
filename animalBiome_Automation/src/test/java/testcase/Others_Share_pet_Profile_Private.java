@@ -58,7 +58,7 @@ public class Others_Share_pet_Profile_Private {
 		driver.findElement(By.xpath(prop.getProperty("j_copylink"))).click();
 		Thread.sleep(4000);
 		String typedText =driver.findElement(By.xpath("//input[@readonly='readonly']")).getAttribute("value");
-		System.out.println("public link is " + typedText);
+		System.out.println("private link is " + typedText);
 		((JavascriptExecutor)driver).executeScript("window.open()"); 
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(1));
@@ -68,7 +68,7 @@ public class Others_Share_pet_Profile_Private {
 		driver.get(typedText);
 		Thread.sleep(4000); 
 		driver.close(); 
-		logger.info("public Others pet profile is shared successfull");
+		logger.info("private Others pet profile is shared successfull");
 		driver.switchTo().window(tabs.get(0)); 
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_closebutton"))).click();
