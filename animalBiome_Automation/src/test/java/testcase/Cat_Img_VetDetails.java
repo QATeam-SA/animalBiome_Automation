@@ -76,12 +76,9 @@ public class Cat_Img_VetDetails {
 
 		ExcelUtils.loadExcelFile(excelPath, sheetName);
 
-		String speciesSelected = "User_Cat";
 		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("j_Enter_Cat_Name"));
 
 		driver.findElement(By.xpath(prop.getProperty("j_Cat_Name"))).sendKeys(newPetName);
-
-		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("j_Age_Years"))).sendKeys(prop.getProperty("j_enter_Age"));
 		Thread.sleep(1000);

@@ -65,12 +65,9 @@ public class Other_WithoutImage_WithVetDetails {
 
 		ExcelUtils.loadExcelFile(excelPath, sheetName);
 
-		String speciesSelected = "User_Others";
 		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Others_Name"));
 
 		driver.findElement(By.xpath(prop.getProperty("G_Others_Name"))).sendKeys(newPetName);
-
-		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.name(prop.getProperty("G_Otheryears"))).sendKeys("3");
 		driver.findElement(By.name(prop.getProperty("G_Othermonths"))).sendKeys("7");

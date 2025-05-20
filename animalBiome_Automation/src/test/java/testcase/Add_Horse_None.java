@@ -46,14 +46,10 @@
 			String sheetName = PropertiesFile.getPetExcelSheetName();
 
 			ExcelUtils.loadExcelFile(excelPath, sheetName);
-
-			String speciesSelected = "User_Horse";
+			
 			String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
 
 			driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(newPetName);
-
-			ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
-
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age"));
 			Thread.sleep(1500);

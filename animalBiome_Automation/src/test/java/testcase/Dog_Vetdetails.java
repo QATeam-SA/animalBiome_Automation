@@ -60,12 +60,9 @@ public class Dog_Vetdetails {
 
 		ExcelUtils.loadExcelFile(excelPath, sheetName);
 
-		String speciesSelected = "User_Dog";
 		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Dog_Name"));
 
 		driver.findElement(By.xpath(prop.getProperty("G_Dog_Name"))).sendKeys(newPetName);
-
-		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.name(prop.getProperty("G_Dogyears"))).sendKeys("3");
 		driver.findElement(By.name(prop.getProperty("G_Dogmonths"))).sendKeys("10");
