@@ -43,16 +43,34 @@
 			Thread.sleep(2000);
 			
 			String excelPath = PropertiesFile.getExcelFilePath();
-			String sheetName = PropertiesFile.getPetExcelSheetName();
+			String sheetName = PropertiesFile.getAddPetExcelSheetName();
 
 			ExcelUtils.loadExcelFile(excelPath, sheetName);
 
+			String petname = ExcelUtils.getNextPetname("USER_HORSE");
+			System.out.println("Fetched Pet Name: " + petname);
+			driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(petname);
+			String sheetName1 = PropertiesFile.getPetExcelSheetName();
+			ExcelUtils.loadExcelFile(excelPath, sheetName1);
+			
 			String speciesSelected = "User_Horse";
-			String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
-
-			driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(newPetName);
-
-			ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
+			 ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, petname);
+			
+			
+			/*
+			 * String excelPath = PropertiesFile.getExcelFilePath(); String sheetName =
+			 * PropertiesFile.getPetExcelSheetName();
+			 * 
+			 * ExcelUtils.loadExcelFile(excelPath, sheetName);
+			 * 
+			 * String speciesSelected = "User_Horse"; String newPetName =
+			 * base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
+			 * 
+			 * driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(
+			 * newPetName);
+			 * 
+			 * ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
+			 */
 
 			
 			Thread.sleep(2000);
