@@ -41,15 +41,31 @@
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click();
 			Thread.sleep(2000);
-			
+			/*
+			 * String excelPath = PropertiesFile.getExcelFilePath(); String sheetName =
+			 * PropertiesFile.getPetExcelSheetName();
+			 * 
+			 * ExcelUtils.loadExcelFile(excelPath, sheetName);
+			 * 
+			 * String newPetName =
+			 * base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
+			 * 
+			 * driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(
+			 * newPetName);
+			 */
 			String excelPath = PropertiesFile.getExcelFilePath();
-			String sheetName = PropertiesFile.getPetExcelSheetName();
+            String sheetName = PropertiesFile.getAddPetExcelSheetName();
 
-			ExcelUtils.loadExcelFile(excelPath, sheetName);
-			
-			String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
+            ExcelUtils.loadExcelFile(excelPath, sheetName);
 
-			driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(newPetName);
+            String petname = ExcelUtils.getNextPetname("USER_HORSE");
+            System.out.println("Fetched Pet Name: " + petname);
+            driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(petname);
+            String sheetName1 = PropertiesFile.getPetExcelSheetName();
+            ExcelUtils.loadExcelFile(excelPath, sheetName1);
+            
+            String speciesSelected = "User_Horse";
+            ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, petname);
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age"));
 			Thread.sleep(1500);

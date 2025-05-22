@@ -81,12 +81,9 @@ public class My_Account_UserProfile_AddPet {
 
 		ExcelUtils.loadExcelFile(excelPath, sheetName);
 
-		String speciesSelected = "User_Dog";
 		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Dog_Name"));
 
 		driver.findElement(By.xpath(prop.getProperty("G_Dog_Name"))).sendKeys(newPetName);
-
-		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_Age_Years"))).sendKeys(prop.getProperty("N_enter_Age_Y"));
 		Thread.sleep(2000);

@@ -47,7 +47,7 @@ public class Cat_View_AllReports {
 		Thread.sleep(5000);
 		jse.executeScript("window.scrollBy(0,-300)");
 		Thread.sleep(4000);
-		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_pphome"))).click();
 		logger.info("clicked on the allreports button from view pet details page");
 		
 		// clicking on the Report button 
