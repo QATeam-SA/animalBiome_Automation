@@ -36,7 +36,8 @@ public class User_Others_List_view_DP {
 		Thread.sleep(4000); 
 		jse.executeScript("window.scrollBy(0,-600)");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("j_userprofile_petportalhome"))).click();
-		logger.info(" viewed deactivated the pet in list view");
+		driver.navigate().back();
+		Thread.sleep(2000);
+        logger.info(" viewed deactivated the pet in list view");
 	}
 }

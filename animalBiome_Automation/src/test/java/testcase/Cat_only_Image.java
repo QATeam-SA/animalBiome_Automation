@@ -314,7 +314,7 @@ public class Cat_only_Image {
 				logger.info("Added pet health details successfully");
 				Thread.sleep(3000);
 				driver.findElement(By.xpath(prop.getProperty("j_Complete"))).click();
-				Thread.sleep(5000);
+				Thread.sleep(6000);
 				driver.findElement(By.xpath(prop.getProperty("j_PetPortal"))).click();
 				logger.info("Pet added successfully");
 				 

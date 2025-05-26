@@ -39,8 +39,9 @@ public class User_Others_Grid_view_DP {
 		jse.executeScript("window.scrollBy(0,600)");
 		Thread.sleep(4000);
 		jse.executeScript("window.scrollBy(0,-600)");
-		Thread.sleep(4000);
-		driver.findElement(By.xpath(prop.getProperty("j_userprofile_petportalhome"))).click();
+		Thread.sleep(2000);
+		driver.navigate().back();
+		Thread.sleep(2000);
 		logger.info("view deactivated pet in grid view is successfull");
 	}
 }
