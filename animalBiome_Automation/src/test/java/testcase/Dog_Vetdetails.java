@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -54,7 +55,14 @@ public class Dog_Vetdetails {
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(prop.getProperty("G_BreedName"))).click();
 		Thread.sleep(1000);
-		driver.findElement(By.id(prop.getProperty("G_PetName"))).sendKeys((prop.getProperty("G_pet_dname")) + "_" + System.currentTimeMillis());
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("G_Enter_Dog_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("G_Dog_Name"))).sendKeys(newPetName);
 		Thread.sleep(1000);
 		driver.findElement(By.name(prop.getProperty("G_Dogyears"))).sendKeys("3");
 		driver.findElement(By.name(prop.getProperty("G_Dogmonths"))).sendKeys("10");

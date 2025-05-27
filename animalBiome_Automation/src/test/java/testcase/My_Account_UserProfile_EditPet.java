@@ -30,10 +30,12 @@ public class My_Account_UserProfile_EditPet {
 		driver.findElement(By.xpath(prop.getProperty("N_userprofile"))).click();
 		logger.info("***** Started viewing pet *******");
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("Nsearchbox"))).sendKeys(prop.getProperty("Ntext"));
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("N_Enter"))).click();
-		Thread.sleep(11000);
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("Nsearchbox"))).sendKeys(prop.
+		 * getProperty("Ntext")); Thread.sleep(2000);
+		 * driver.findElement(By.xpath(prop.getProperty("N_Enter"))).click();
+		 * Thread.sleep(11000);
+		 */
 		Actions act = new Actions(driver);
 		act.moveToElement(driver.findElement(By.xpath(prop.getProperty("N_Flip")))).perform();
 		Thread.sleep(2000);

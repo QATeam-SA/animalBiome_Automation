@@ -66,6 +66,46 @@ public class ExcelUtils {
         if (cell == null) return "";
         return cell.getCellType() == CellType.STRING ? cell.getStringCellValue() : cell.toString();
     }
+    
+    
+    
+    public static String getNextPetname(String columnName) throws IOException {
+        validateSheetLoaded();
+
+        int columnIndex = getColumnIndex(columnName);
+
+       
+        CellStyle highlightStyle = workbook.createCellStyle();
+        highlightStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+        highlightStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+            Row row = sheet.getRow(i);
+            if (row == null) continue;
+
+            Cell sampleCell = row.getCell(columnIndex);
+            if (sampleCell == null || sampleCell.getCellType() == CellType.BLANK) continue;
+
+            
+            CellStyle currentStyle = sampleCell.getCellStyle();
+            if (currentStyle != null &&
+                currentStyle.getFillForegroundColor() == IndexedColors.YELLOW.getIndex() &&
+                currentStyle.getFillPattern() == FillPatternType.SOLID_FOREGROUND) {
+                continue;
+            }
+
+            String PetName = getCellValue(row, columnIndex);
+
+            sampleCell.setCellStyle(highlightStyle);  
+
+            saveExcelFile();
+            return PetName;
+        }
+        
+        
+
+        return null; 
+    }
 
     public static String getNextSample(String columnName) throws IOException {
         validateSheetLoaded();

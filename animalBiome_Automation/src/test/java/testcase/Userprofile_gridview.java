@@ -30,13 +30,11 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		Thread.sleep(2000); 
 		jse.executeScript("window.scrollBy(0,300)");
-		
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo"); 
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
-		Thread.sleep(3000);
-		 
+		Thread.sleep(3000); 
 		WebElement targetelement = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action = new Actions(driver);
 		action.moveToElement(targetelement).perform();
@@ -50,7 +48,7 @@ public class Userprofile_gridview {
 		logger.info("view pet details is successfull");
 		driver.navigate().back();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_petportlhome"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
 	
 		//edit pet details
 		Thread.sleep(4000);
@@ -58,12 +56,10 @@ public class Userprofile_gridview {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
 		Thread.sleep(2000); 
-		
 		driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys("nepo"); 
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
-		Thread.sleep(3000);
-		 
+		Thread.sleep(3000); 
 		WebElement targetelement1 = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action1 = new Actions(driver);
 		action1.moveToElement(targetelement1).perform();
@@ -80,19 +76,13 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_cmpltebtn"))).click();
 		Thread.sleep(3000);
 		logger.info("Edit pet details is successfull");
-		driver.findElement(By.xpath(prop.getProperty("j_viewpoertalbtn"))).click();
+		driver.findElement(By.xpath(prop.getProperty("j_viewpetportalbtn"))).click();
 		
 		//delete pet in grid view in userprofile
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_myacnt_userprofile"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_userprofile"))).click();
-		/*
-		 * Thread.sleep(2000);
-		 * driver.findElement(By.xpath(prop.getProperty("j_searchbar"))).sendKeys(
-		 * "chant"); Thread.sleep(3000);
-		 * driver.findElement(By.xpath(prop.getProperty("j_searchbtn"))).click();
-		 */
 		Thread.sleep(3000);
 		WebElement targetelement2 = driver.findElement(By.xpath(prop.getProperty("j_mousehover")));
 		Actions action2 = new Actions(driver);
@@ -101,14 +91,8 @@ public class Userprofile_gridview {
 		driver.findElement(By.xpath(prop.getProperty("j_delbtn_uprfl"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_del_popup"))).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("j_petportlhome"))).click();
-		logger.info("pet deleted successfully");
-		
-		
-	}
-	
-	
-	
-	
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(prop.getProperty("j_petportalhome"))).click();
+		logger.info("pet deleted successfully");	
+	}	
 }

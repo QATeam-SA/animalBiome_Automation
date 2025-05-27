@@ -1,5 +1,6 @@
 package testcase;
 
+import java.io.IOException;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import base.ExcelUtils;
 import base.Instance;
 import base.PropertiesFile;
 
@@ -18,7 +20,7 @@ public class RegisterSample_Addpet_Cat {
 	Properties prop = PropertiesFile.readPropertyFile("RegisterSample_Addpet_Cat.properties");
 	
 	@Test(priority=3,enabled=true)
-	public void AddingCatThroughSampleRegistration() throws InterruptedException
+	public void AddingCatThroughSampleRegistration() throws InterruptedException, IOException
 	{
 		Thread.sleep(3000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -34,7 +36,17 @@ public class RegisterSample_Addpet_Cat {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_breeds"))).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("j_petname"))).sendKeys((prop.getProperty("j_petname_rpt")) + "_" + System.currentTimeMillis());
+		String excelPath = PropertiesFile.getExcelFilePath();
+		String sheetName = PropertiesFile.getPetExcelSheetName();
+
+		ExcelUtils.loadExcelFile(excelPath, sheetName);
+
+		String speciesSelected = "User_Cat";
+		String newPetName = base.ExcelUtils.UniquePetName(prop.getProperty("j_Enter_Cat_Name"));
+
+		driver.findElement(By.xpath(prop.getProperty("j_Cat_Name"))).sendKeys(newPetName);
+
+		ExcelUtils.addPetNameToSpeciesColumn(speciesSelected, newPetName);	
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("j_Age_Years"))).sendKeys(prop.getProperty("j_enter_Age"));
 		Thread.sleep(3000);

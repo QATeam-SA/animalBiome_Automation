@@ -95,6 +95,10 @@ public class PropertiesFile {
         Properties prop = readPropertyFile("ab_datafile.properties");
         return prop.getProperty("PetExcelSheet");
     }
+    public static String getAddPetExcelSheetName() {
+        Properties prop = readPropertyFile("ab_datafile.properties");
+        return prop.getProperty("AddPetExcellSheet");
+    }
     
 	
 	@AfterTest	
