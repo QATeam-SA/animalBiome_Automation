@@ -32,7 +32,7 @@ public class Register_SampleAddPet_Horse {
 public void AddingHorsePetDetails() throws InterruptedException, IOException {
 	Thread.sleep(4000);
 	driver.findElement(By.xpath(prop.getProperty("N_Register_Sample"))).click();
-	Thread.sleep(1500);
+	Thread.sleep(3000);
 	logger.info("***** Adding a horse with all details in my pet section*******");
 	JavascriptExecutor jse = (JavascriptExecutor) driver;
 	driver.findElement(By.xpath(prop.getProperty("NADDPET"))).click();

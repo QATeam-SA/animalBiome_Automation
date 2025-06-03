@@ -41,18 +41,6 @@
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(prop.getProperty("NbreedType"))).click();
 			Thread.sleep(2000);
-			/*
-			 * String excelPath = PropertiesFile.getExcelFilePath(); String sheetName =
-			 * PropertiesFile.getPetExcelSheetName();
-			 * 
-			 * ExcelUtils.loadExcelFile(excelPath, sheetName);
-			 * 
-			 * String newPetName =
-			 * base.ExcelUtils.UniquePetName(prop.getProperty("N_Enter_Horse_Name"));
-			 * 
-			 * driver.findElement(By.xpath(prop.getProperty("N_Horse_Name"))).sendKeys(
-			 * newPetName);
-			 */
 			String excelPath = PropertiesFile.getExcelFilePath();
             String sheetName = PropertiesFile.getAddPetExcelSheetName();
 

@@ -25,9 +25,9 @@ public class RegisterSample_Addpet_Cat {
 		Thread.sleep(3000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		driver.findElement(By.xpath(prop.getProperty("j_reg_sample"))).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("j_rs_addpet"))).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		jse.executeScript("window.scrollBy(0,200)");
 		driver.findElement(By.xpath(prop.getProperty("j_select_cat"))).click();
 		Thread.sleep(3000);
