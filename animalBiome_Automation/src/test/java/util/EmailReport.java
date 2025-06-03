@@ -55,7 +55,7 @@ public class EmailReport {
                     + "  </tr>"
                     + "  <tr>"
                     + "    <td style='padding:8px;'><b>Triggered By:</b></td>"
-                    + "    <td style='padding:8px;'>Manual Execution</td>"
+                    + "    <td style='padding:8px;'>Automatic Execution By Jenkins</td>"
                     + "  </tr>"
                     + "  <tr>"
                     + "    <td style='padding:8px; color:green;'><b>✅ Passed:</b></td>"
