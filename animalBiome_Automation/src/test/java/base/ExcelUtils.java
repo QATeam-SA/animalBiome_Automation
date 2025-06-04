@@ -23,9 +23,11 @@ public class ExcelUtils {
     
     
     public static String UniquePetName(String baseName) throws IOException {
-        File counterFile = new File("pet_name_counter.txt");
+        //File counterFile = new File("pet_name_counter.txt");
+        File counterFile = new File(System.getProperty("user.home") + "/pet_name_counter.txt");
         Map<String, Integer> counterMap = new HashMap<>();
 
+        // Step 1: Read existing counters
         if (counterFile.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(counterFile))) {
                 String line;
@@ -38,9 +40,11 @@ public class ExcelUtils {
             }
         }
 
-        int count = counterMap.getOrDefault(baseName, 0) + 1;
-        counterMap.put(baseName, count);
+        // Step 2: Increment counter for this baseName
+        int newCount = counterMap.getOrDefault(baseName, 0) + 1;
+        counterMap.put(baseName, newCount);
 
+        // Step 3: Write updated counters back to the file
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(counterFile))) {
             for (Map.Entry<String, Integer> entry : counterMap.entrySet()) {
                 writer.write(entry.getKey() + "=" + entry.getValue());
@@ -48,7 +52,8 @@ public class ExcelUtils {
             }
         }
 
-        return baseName + count;
+        // Step 4: Return the new unique pet name
+        return baseName + newCount;
     }
     
     public static void loadExcelFile(String filePath, String sheetName) throws IOException {
