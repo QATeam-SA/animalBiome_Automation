@@ -26,14 +26,15 @@ public class ExcelUtils {
         //File counterFile = new File("pet_name_counter.txt");
         //File counterFile = new File(System.getProperty("user.home") + "/pet_name_counter.txt");
     	
-        String workspace = System.getenv("WORKSPACE"); File counterFile;
-        
-        if (workspace != null) { counterFile = new File(workspace + File.separator +
-        "pet_name_counter.txt"); } 
-        else 
-        { counterFile = new
-        File("pet_name_counter.txt"); // fallback for local runs 
-        }
+		/*
+		 * String workspace = System.getenv("WORKSPACE"); File counterFile;
+		 * 
+		 * if (workspace != null) { counterFile = new File(workspace + File.separator +
+		 * "pet_name_counter.txt"); } else { counterFile = new
+		 * File("pet_name_counter.txt"); // fallback for local runs }
+		 */
+    	String projectRoot = System.getProperty("user.dir");
+        File counterFile = new File(projectRoot + File.separator + "pet_name_counter.txt");
         Map<String, Integer> counterMap = new HashMap<>();
 
         // Step 1: Read existing counters
