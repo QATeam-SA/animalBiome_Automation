@@ -24,7 +24,16 @@ public class ExcelUtils {
     
     public static String UniquePetName(String baseName) throws IOException {
         //File counterFile = new File("pet_name_counter.txt");
-        File counterFile = new File(System.getProperty("user.home") + "/pet_name_counter.txt");
+        //File counterFile = new File(System.getProperty("user.home") + "/pet_name_counter.txt");
+    	
+        String workspace = System.getenv("WORKSPACE"); File counterFile;
+        
+        if (workspace != null) { counterFile = new File(workspace + File.separator +
+        "pet_name_counter.txt"); } 
+        else 
+        { counterFile = new
+        File("pet_name_counter.txt"); // fallback for local runs 
+        }
         Map<String, Integer> counterMap = new HashMap<>();
 
         // Step 1: Read existing counters
@@ -55,6 +64,7 @@ public class ExcelUtils {
         // Step 4: Return the new unique pet name
         return baseName + newCount;
     }
+        
     
     public static void loadExcelFile(String filePath, String sheetName) throws IOException {
         excelFilePath = filePath; 

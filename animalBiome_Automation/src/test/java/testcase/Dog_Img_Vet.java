@@ -53,20 +53,19 @@ public class Dog_Img_Vet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_DogButton"))).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click();
+		/* driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click(); */
 		Thread.sleep(5000);
-		Robot robot = new Robot();
-		robot.delay(5000);
-		StringSelection select = new StringSelection(prop.getProperty("G_UploadImage"));
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		Thread.sleep(2000);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyRelease(KeyEvent.VK_V);
-		Thread.sleep(2000);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		/*
+		 * Robot robot = new Robot(); robot.delay(5000); StringSelection select = new
+		 * StringSelection(prop.getProperty("G_UploadImage"));
+		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
+		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyPress(KeyEvent.VK_V);
+		 * Thread.sleep(2000); robot.keyRelease(KeyEvent.VK_CONTROL);
+		 * robot.keyRelease(KeyEvent.VK_V); Thread.sleep(2000);
+		 * robot.keyPress(KeyEvent.VK_ENTER); robot.keyRelease(KeyEvent.VK_ENTER);
+		 */
+		WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
+        fileInput.sendKeys(prop.getProperty("G_UploadImage"));
 		Thread.sleep(2000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
