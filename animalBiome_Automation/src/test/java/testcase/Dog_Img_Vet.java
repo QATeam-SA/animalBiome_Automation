@@ -1,8 +1,4 @@
 package testcase;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;

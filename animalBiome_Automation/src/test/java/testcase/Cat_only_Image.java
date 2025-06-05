@@ -1,10 +1,6 @@
 package testcase;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -42,22 +38,21 @@ public class Cat_only_Image {
 			driver.findElement(By.xpath(prop.getProperty("j_select_cat"))).click();
 			Thread.sleep(2000);
 			jse.executeScript("window.scrollBy(0,-200)");
-			driver.findElement(By.xpath(prop.getProperty("j_profile_pic"))).click();
-			Thread.sleep(5000);
-			Robot rb = new Robot();
-			rb.delay(2000);
-
-			StringSelection ss = new StringSelection(prop.getProperty("Upload_cat"));
-			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-			rb.keyPress(KeyEvent.VK_CONTROL);
-			rb.keyPress(KeyEvent.VK_V);
-			rb.delay(2000);
-			rb.keyRelease(KeyEvent.VK_CONTROL);
-			rb.keyRelease(KeyEvent.VK_V);
-			rb.delay(2000);
-			rb.keyPress(KeyEvent.VK_ENTER);
-			rb.keyRelease(KeyEvent.VK_ENTER);
-			rb.delay(2000);
+			Thread.sleep(3000);
+			/*
+			 * driver.findElement(By.xpath(prop.getProperty("j_profile_pic"))).click();
+			 * Thread.sleep(5000); Robot rb = new Robot(); rb.delay(2000);
+			 * 
+			 * StringSelection ss = new StringSelection(prop.getProperty("Upload_cat"));
+			 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+			 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
+			 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
+			 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
+			 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000);
+			 */
+			WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
+	        fileInput.sendKeys(prop.getProperty("Upload_cat"));
+			Thread.sleep(3000);
 			driver.switchTo();
 			Actions act = new Actions(driver);
 			WebElement ele = driver.findElement(By.xpath(prop.getProperty("j_Drag_&_Drop")));

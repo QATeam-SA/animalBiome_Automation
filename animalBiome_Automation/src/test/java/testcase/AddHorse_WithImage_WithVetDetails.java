@@ -44,25 +44,25 @@ public class AddHorse_WithImage_WithVetDetails {
 		driver.findElement(By.xpath(prop.getProperty("NHorse"))).click();
 		Thread.sleep(3000);
 		jse.executeScript("window.scrollBy(0,-200)");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("N_Horse_Profile_Picture"))).click();
-
-		Thread.sleep(5000);
-
-		Robot rb = new Robot();
-		rb.delay(2000);
-
-		StringSelection ss = new StringSelection(prop.getProperty("Upload_Horse"));
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(2000);
+		Thread.sleep(4000);
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("N_Horse_Profile_Picture"))).
+		 * click();
+		 * 
+		 * Thread.sleep(5000);
+		 * 
+		 * Robot rb = new Robot(); rb.delay(2000);
+		 * 
+		 * StringSelection ss = new StringSelection(prop.getProperty("Upload_Horse"));
+		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
+		 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
+		 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
+		 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000);
+		 */
+		WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
+        fileInput.sendKeys(prop.getProperty("Upload_Horse"));
+		Thread.sleep(3000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath(prop.getProperty("NDrag_&_drop")));

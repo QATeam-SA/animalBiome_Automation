@@ -1,9 +1,5 @@
 package testcase;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
@@ -58,24 +54,23 @@ public class Other_WithImage_WithoutVetDetails {
 		breed.selectByVisibleText("Californian");
 		Thread.sleep(1500);
 		js.executeScript("window.scrollBy(0,200)");
-		driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).click();
+		//driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).click();
 
 		Thread.sleep(5000);
 
-		Robot rb = new Robot();
-		rb.delay(2000);
-
-		StringSelection ss = new StringSelection(prop.getProperty("Upload_other"));
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(2000);
+		/*
+		 * Robot rb = new Robot(); rb.delay(2000);
+		 * 
+		 * StringSelection ss = new StringSelection(prop.getProperty("Upload_other"));
+		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
+		 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
+		 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
+		 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000);
+		 */
+		WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
+        fileInput.sendKeys(prop.getProperty("Upload_other"));
+		Thread.sleep(2000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath(prop.getProperty("G_Drag_&_drop")));

@@ -32,25 +32,25 @@ public class RegisterSample_AddPet {
 		Thread.sleep(3000);
 		logger.info("***** Started adding pet *******");
 		driver.findElement(By.xpath(prop.getProperty("N_addpet"))).click();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(prop.getProperty("N_Profile_Picture"))).click();
+		/*
+		 * Thread.sleep(5000);
+		 * driver.findElement(By.xpath(prop.getProperty("N_Profile_Picture"))).click();
+		 */
 
 		Thread.sleep(5000);
-
-		Robot rb = new Robot();
-		rb.delay(2000);
-
-		StringSelection ss = new StringSelection(prop.getProperty("Upload_Dog"));
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-		rb.keyPress(KeyEvent.VK_CONTROL);
-		rb.keyPress(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
-		rb.delay(2000);
-		rb.keyPress(KeyEvent.VK_ENTER);
-		rb.keyRelease(KeyEvent.VK_ENTER);
-		rb.delay(2000);
+		/*
+		 * Robot rb = new Robot(); rb.delay(2000);
+		 * 
+		 * StringSelection ss = new StringSelection(prop.getProperty("Upload_Dog"));
+		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+		 * rb.keyPress(KeyEvent.VK_CONTROL); rb.keyPress(KeyEvent.VK_V); rb.delay(2000);
+		 * rb.keyRelease(KeyEvent.VK_CONTROL); rb.keyRelease(KeyEvent.VK_V);
+		 * rb.delay(2000); rb.keyPress(KeyEvent.VK_ENTER);
+		 * rb.keyRelease(KeyEvent.VK_ENTER); rb.delay(2000);
+		 */
+		WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
+        fileInput.sendKeys(prop.getProperty("Upload_Dog"));
+        Thread.sleep(2000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath(prop.getProperty("NDrag_&_drop")));
