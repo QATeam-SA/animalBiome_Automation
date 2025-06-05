@@ -60,14 +60,14 @@ public class Dog_onlyImage {
         fileInput.sendKeys(prop.getProperty("G_UploadImage"));
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("G_ImageSubmit"))).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,600)");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_SelectBreed"))).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_BreedName"))).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		String excelPath = PropertiesFile.getExcelFilePath();
 		String sheetName = PropertiesFile.getPetExcelSheetName();
 
