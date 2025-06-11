@@ -44,7 +44,7 @@ public class Dog_Img_Vet {
 	private JavascriptExecutor MypetDetails() throws InterruptedException, Exception {
 
 		logger.info("***Started adding dog****");
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("G_AddPet"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_DogButton"))).click();

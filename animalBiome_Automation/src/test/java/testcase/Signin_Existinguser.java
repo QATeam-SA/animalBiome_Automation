@@ -38,6 +38,7 @@ public class Signin_Existinguser {
 		driver.findElement(By.xpath(prop.getProperty("password"))).sendKeys(prop.getProperty("pw"));
 		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("signIn"))).click();
+		Thread.sleep(4000);
 		System.out.println("Login Sucessfully with existingUser");
 		logger.info("***** Log in successfully *******");
 }
