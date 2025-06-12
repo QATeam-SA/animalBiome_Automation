@@ -28,7 +28,7 @@ public class Other_WithImage_WithoutVetDetails {
 	Logger logger = LogManager.getLogger(Other_WithImage_WithoutVetDetails.class);
 
 	@Test(priority = 16, enabled = true)
-	public void OtherSpeciesWithoutImageandVet() throws Exception {
+	public void OtherSpeciesWithImageandwithoutVet() throws Exception {
 
 		// ------- MY PET---------
 
@@ -52,10 +52,6 @@ public class Other_WithImage_WithoutVetDetails {
 		Thread.sleep(1500);
 		Select breed = new Select(driver.findElement(By.xpath(prop.getProperty("G_SelectBreed"))));
 		breed.selectByVisibleText("Californian");
-		Thread.sleep(1500);
-		js.executeScript("window.scrollBy(0,200)");
-		//driver.findElement(By.xpath(prop.getProperty("G_other_Profile_Picture"))).click();
-
 		Thread.sleep(5000);
 
 		/*
