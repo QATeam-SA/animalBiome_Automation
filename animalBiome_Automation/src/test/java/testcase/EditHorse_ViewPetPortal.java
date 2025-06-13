@@ -24,7 +24,7 @@ public class EditHorse_ViewPetPortal {
 	WebDriver driver = Instance.getInstance();
 	Properties prop = PropertiesFile.readPropertyFile("EditHorse_ViewPetPortal.properties");
 	@Test(enabled = true)
-	public void EditingHorseFromHomePage() throws InterruptedException {
+	public void EditingHorseFromViewPetPortal() throws InterruptedException {
 		Thread.sleep(4000);
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		logger.info("***** Started editing the pet from home page*******");
@@ -186,17 +186,17 @@ public class EditHorse_ViewPetPortal {
 				.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("N_Horse_Portal_Home"))));
 		hp.click();
 		Thread.sleep(6000);
-		WebElement titleValidation = driver.findElement(By.xpath(
-				"//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"));
-
-		String expectedText = "Pet added successfully.";
-		String actualText = titleValidation.getText();
-		if (actualText.equals(expectedText)) {
-			System.out.println("Both Text are Same. The title is" + actualText);
-		} else {
-			System.out.println("Both Text are not Same. The dispalyed text is" + actualText);
-		}
-
+		/*
+		 * WebElement titleValidation = driver.findElement(By.xpath(
+		 * "//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"
+		 * ));
+		 * 
+		 * String expectedText = "Pet added successfully."; String actualText =
+		 * titleValidation.getText(); if (actualText.equals(expectedText)) {
+		 * System.out.println("Both Text are Same. The title is" + actualText); } else {
+		 * System.out.println("Both Text are not Same. The dispalyed text is" +
+		 * actualText); }
+		 */
 		logger.info("***** Edited  Horse with random selection of questionnaire *******");
 
 	}

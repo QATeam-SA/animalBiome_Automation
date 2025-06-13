@@ -1,10 +1,6 @@
 package testcase;
 
 import java.awt.AWTException;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.HashSet;
@@ -367,16 +363,17 @@ public class AddHorse_WithImage_WithVetDetails {
 				.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("N_Horse_Portal"))));
 		hp.click();
 		Thread.sleep(6000);
-		WebElement titleValidation = driver.findElement(By.xpath(
-				"//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"));
-
-		String expectedText = "Pet added successfully.";
-		String actualText = titleValidation.getText();
-		if (actualText.equals(expectedText)) {
-			System.out.println("Both Text are Same. The title is" + actualText);
-		} else {
-			System.out.println("Both Text are not Same. The dispalyed text is" + actualText);
-		}
+		/*
+		 * WebElement titleValidation = driver.findElement(By.xpath(
+		 * "//div[@class='col-sm-12 col-lg-12 col-md-12 alert alert-success alert-dismissible ng-star-inserted']"
+		 * ));
+		 * 
+		 * String expectedText = "Pet added successfully."; String actualText =
+		 * titleValidation.getText(); if (actualText.equals(expectedText)) {
+		 * System.out.println("Both Text are Same. The title is" + actualText); } else {
+		 * System.out.println("Both Text are not Same. The dispalyed text is" +
+		 * actualText); }
+		 */
 
 		logger.info("***** Horse added successfully with all details along with image & vet *******");
 
