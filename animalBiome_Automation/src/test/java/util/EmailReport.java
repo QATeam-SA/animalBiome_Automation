@@ -38,7 +38,7 @@ public class EmailReport {
             // Email Body
             String bodyText = "<html><body style='font-family:Arial, sans-serif;'>"
                     + "<h2 style='color:#2E86C1;'>🚀 AnimalBiome Automation Test Report</h2>"
-                    + "<p>The latest Automated TestSuite from the Master Branch has been executed. Please find the summary below, along with the detailed HTML report for further insights.</p>"
+                    + "<p>The latest Automated TestSuite from the Automation Branch has been executed. Please find the summary below, along with the detailed HTML report for further insights.</p>"
 
                     + "<table style='border-collapse:collapse; width: 60%;'>"
                     + "  <tr>"
