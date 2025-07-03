@@ -3,17 +3,45 @@ package util;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 import javax.mail.internet.MimeUtility;
 
 public class EmailReport {
 
     public static void sendReportEmail(int passed, int failed, int skipped) {
-        final String senderEmail = "qateamstratapps@gmail.com"; 
-        final String senderPassword = "uuus patl eysl ysne"; 
-        final String recipientEmail = "nooruddin@stratapps.com,banoj@stratapps.com,bgrace@stratapps.com,vjasmitha@stratapps.com";
+        final String senderEmail = "qateamstratapps@gmail.com";
+        final String senderPassword = "uuus patl eysl ysne";
+        final String recipientEmail = "nooruddin@stratapps.com,banoj@stratapps.com,vjasmitha@stratapps.com,bgrace@stratapps.com,klakshmansai@stratapps.com";
 
-        // SMTP Configuration
+        int total = passed + failed + skipped;
+        double successRate = total > 0 ? ((double) passed / total) * 100 : 0;
+        String formattedSuccessRate = String.format("%.1f", successRate);
+        String executionTime = new SimpleDateFormat("MMM dd, yyyy HH:mm:ss").format(new Date());
+
+        String environment = "Release";
+        String testSuite = "Regression";
+        String triggeredBy = "Jenkins CI/CD";
+
+        List<String> recommendations = Arrays.asList(
+            "Investigate " + failed + " failed test case(s) - prioritize critical path scenarios",
+            "Review " + skipped + " skipped test(s) - determine if they should be enabled or removed",
+            "Maintain excellent " + formattedSuccessRate + "% pass rate - aim for 95%+ target",
+            "Schedule analysis of failures with development team",
+            "Add edge case coverage to improve reliability"
+        );
+
+        StringBuilder recommendationHtml = new StringBuilder();
+        for (String rec : recommendations) {
+            recommendationHtml.append("<li>🚀 ").append(rec).append("</li>");
+        }
+
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
@@ -28,54 +56,22 @@ public class EmailReport {
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(senderEmail));
+            message.setFrom(new InternetAddress(senderEmail,"TeamQA StratApps"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipientEmail));
+            message.setSubject(MimeUtility.encodeText("🎯 AnimalBiome Quality Check Complete - Ready for Review", "UTF-8", "B"));
 
-            
-            String subject = "📢Hurray! animalBiome Automation Test Execution Report is Ready to View 📊";
-            message.setSubject(MimeUtility.encodeText(subject, "UTF-8", "B"));
+          String bodyText = new String(Files.readAllBytes(Paths.get("src/test/java/util/email_template_base.html")), StandardCharsets.UTF_8);
 
-            // Email Body
-            String bodyText = "<html><body style='font-family:Arial, sans-serif;'>"
-                    + "<h2 style='color:#2E86C1;'>🚀 AnimalBiome Automation Test Report</h2>"
-                    + "<p>The latest Automated TestSuite from the Automation Branch has been executed. Please find the summary below, along with the detailed HTML report for further insights.</p>"
-
-                    + "<table style='border-collapse:collapse; width: 60%;'>"
-                    + "  <tr>"
-                    + "    <th style='background-color:#f2f2f2; padding:10px; text-align:left;'>📋 Summary</th>"
-                    + "    <th style='background-color:#f2f2f2; padding:10px; text-align:left;'></th>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px;'><b>Environment:</b></td>"
-                    + "    <td style='padding:8px;'>Release</td>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px;'><b>Test Suite:</b></td>"
-                    + "    <td style='padding:8px;'>Regression</td>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px;'><b>Triggered By:</b></td>"
-                    + "    <td style='padding:8px;'>Automatic Execution By Jenkins</td>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px; color:green;'><b>✅ Passed:</b></td>"
-                    + "    <td style='padding:8px; color:green;'>" + passed + "</td>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px; color:red;'><b>❌ Failed:</b></td>"
-                    + "    <td style='padding:8px; color:red;'>" + failed + "</td>"
-                    + "  </tr>"
-                    + "  <tr>"
-                    + "    <td style='padding:8px; color:#f39c12;'><b>⏩ Skipped:</b></td>"
-                    + "    <td style='padding:8px; color:#f39c12;'>" + skipped + "</td>"
-                    + "  </tr>"
-                    + "</table><br>"
-
-                    + "<p style='margin-top: 30px;'>Please feel free to contact us if you have any questions or concerns.</p>"
-                    + "<p>Thanks & Regards,<br>"
-                    + "<b>QA Team - StratApps</b><br>"
-                    + "📧 automation@stratapps.com</p>"
-                    + "</body></html>";
+            bodyText = bodyText.replace("{{PASSED}}", String.valueOf(passed))
+                               .replace("{{FAILED}}", String.valueOf(failed))
+                               .replace("{{SKIPPED}}", String.valueOf(skipped))
+                               .replace("{{TOTAL}}", String.valueOf(total))
+                               .replace("{{SUCCESS_RATE}}", formattedSuccessRate)
+                               .replace("{{EXECUTION_TIME}}", executionTime)
+                               .replace("{{ENVIRONMENT}}", environment)
+                               .replace("{{TEST_SUITE}}", testSuite)
+                               .replace("{{TRIGGERED_BY}}", triggeredBy)
+                               .replace("{{RECOMMENDATIONS}}", recommendationHtml.toString());
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
             messageBodyPart.setContent(bodyText, "text/html; charset=utf-8");
@@ -92,10 +88,9 @@ public class EmailReport {
 
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
-            multipart.addBodyPart(attachmentPart); 
+            multipart.addBodyPart(attachmentPart);
             message.setContent(multipart);
 
-            // Send email
             Transport.send(message);
             System.out.println("Test Report Email Sent Successfully!");
 
@@ -108,7 +103,7 @@ public class EmailReport {
     private static String findLatestExtentReport(String directoryPath) {
         File directory = new File(directoryPath);
         File[] files = directory.listFiles((dir, name) -> name.endsWith(".html"));
-        
+
         if (files == null || files.length == 0) {
             return null;
         }
