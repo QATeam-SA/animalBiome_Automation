@@ -4,69 +4,154 @@
 <head>
   <meta charset="UTF-8" />
   <title>AnimalBiome Test Automation Report</title>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .stack-column {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .stack-column > table {
+        width: 100% !important;
+      }
+      .stack-metrics td {
+        display: block !important;
+        width: 100% !important;
+      }
+    }
+  </style>
 </head>
 <body style="font-family: 'Segoe UI', Arial, sans-serif; background: #f3f4f6; margin: 0; padding: 20px 0;">
   <div style="max-width: 860px; margin: auto; background: #fff; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); padding: 30px;">
-    
+
     <!-- Header -->
     <div style="background: #6d28d9; color: #fff; padding: 30px; text-align: center; border-radius: 12px;">
       <h1 style="margin: 0; font-size: 24px;">🚀 AnimalBiome Test Automation Report</h1>
       <p style="font-size: 14px; opacity: 0.9;">Comprehensive Quality Assurance Dashboard</p>
     </div>
 
-    <!-- Top Metrics Section (Two-Row Card Layout) -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="background: #f9fafb; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin: 20px 0; font-family: sans-serif;">
-      <!-- First Row: 3 Cards -->
+    <!-- Top Metrics Section (fully wrapped inside grey box) -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background: #f9fafb; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin: 20px 0;">
       <tr>
-        <!-- Environment -->
-        <td style="padding: 10px; width: 33.33%; vertical-align: top;">
-          <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+        <td style="padding: 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="font-family: sans-serif;">
             <tr>
-              <td style="padding: 20px;">
-                <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Environment</h3>
-                <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #4f46e5;">{{ENVIRONMENT}}</div>
-                <div style="font-size: 12px; color: #6b7280;">PRODUCTION READY</div>
+              <!-- Environment -->
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;">
+                <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                  <tr>
+                    <td style="padding: 20px;">
+                      <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Environment</h3>
+                      <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #4f46e5;">{{ENVIRONMENT}}</div>
+                      <div style="font-size: 12px; color: #6b7280;">PRODUCTION READY</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+              <!-- Test Suite -->
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;">
+                <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                  <tr>
+                    <td style="padding: 20px;">
+                      <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Test Suite</h3>
+                      <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #7c3aed;">{{TEST_SUITE}}</div>
+                      <div style="font-size: 12px; color: #6b7280;">FULL COVERAGE</div>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+
+              <!-- Execution Trigger -->
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;">
+                <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                  <tr>
+                    <td style="padding: 20px;">
+                      <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Execution Trigger</h3>
+                      <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #059669;">{{TRIGGERED_BY}}</div>
+                      <div style="font-size: 12px; color: #6b7280;">AUTOMATED PIPELINE</div>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
-          </table>
-        </td>
 
-        <!-- Test Suite -->
-        <td style="padding: 10px; width: 33.33%; vertical-align: top;">
-          <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+            <!-- Execution Time (same width as others) -->
             <tr>
-              <td style="padding: 20px;">
-                <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Test Suite</h3>
-                <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #7c3aed;">{{TEST_SUITE}}</div>
-                <div style="font-size: 12px; color: #6b7280;">FULL COVERAGE</div>
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;">
+                <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                  <tr>
+                    <td style="padding: 20px;">
+                      <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Execution Time</h3>
+                      <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #dc2626;">{{EXECUTION_TIME}}</div>
+                      <div style="font-size: 12px; color: #6b7280;">LATEST RUN</div>
+                    </td>
+                  </tr>
+                </table>
               </td>
-            </tr>
-          </table>
-        </td>
 
-        <!-- Execution Trigger -->
-        <td style="padding: 10px; width: 33.33%; vertical-align: top;">
-          <table width="100%" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <tr>
-              <td style="padding: 20px;">
-                <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Execution Trigger</h3>
-                <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #059669;">{{TRIGGERED_BY}}</div>
-                <div style="font-size: 12px; color: #6b7280;">AUTOMATED PIPELINE</div>
-              </td>
+              <!-- Empty cells for layout alignment -->
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;"></td>
+              <td class="stack-column" style="padding: 10px; width: 33.33%; vertical-align: top;"></td>
             </tr>
           </table>
         </td>
       </tr>
+    </table>
 
-      <!-- Second Row: Execution Time -->
+
+
+    <!-- Test Execution Results -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background: #f9fafb; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 30px; margin: 20px 0; font-family: sans-serif;">
       <tr>
-        <td colspan="3" style="padding: 10px; vertical-align: top;">
-          <table width="33.33%" align="left" style="background: #ffffff; border-radius: 12px; height: 100%; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+        <td>
+          <div style="display: flex; justify-content-end">
+            <h2 style="margin: 0 0 20px 0; font-size: 18px; color: #111827;">
+              <img src="https://img.icons8.com/color/24/000000/combo-chart--v1.png" style="vertical-align: middle; margin-right: 6px;" />
+              Test Execution Results
+            </h2>
+            <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
+              <span style="background: #10b981; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap;">
+                {{SUCCESS_RATE}}% Success Rate
+              </span>
+            </div>
+          </div>
+          <div style="background: #e5e7eb; height: 20px; border-radius: 10px; width: 100%; margin: 20px 0; position: relative;">
+            <div style="background: #10b981; height: 100%; width: {{SUCCESS_RATE}}%; border-radius: 10px;"></div>
+          </div>
+          <table width="100%" cellpadding="0" cellspacing="0" class="stack-metrics">
             <tr>
-              <td style="padding: 20px;">
-                <h3 style="margin: 0; color: #6b7280; font-size: 13px;">Execution Time</h3>
-                <div style="font-size: 18px; font-weight: bold; margin-top: 6px; color: #dc2626;">{{EXECUTION_TIME}}</div>
-                <div style="font-size: 12px; color: #6b7280;">LATEST RUN</div>
+              <td style="padding: 10px; width: 25%;">
+                <table width="100%" style="background: #ecfdf5; border-left: 6px solid #10b981; border-radius: 12px;">
+                  <tr><td align="center" style="padding: 20px;">
+                    <div style="font-size: 22px; font-weight: bold; color: #10b981;">{{PASSED}}</div>
+                    <div style="font-size: 13px; color: #047857;">✅ Passed</div>
+                  </td></tr>
+                </table>
+              </td>
+              <td style="padding: 10px; width: 25%;">
+                <table width="100%" style="background: #fef2f2; border-left: 6px solid #ef4444; border-radius: 12px;">
+                  <tr><td align="center" style="padding: 20px;">
+                    <div style="font-size: 22px; font-weight: bold; color: #ef4444;">{{FAILED}}</div>
+                    <div style="font-size: 13px; color: #b91c1c;">❌ Failed</div>
+                  </td></tr>
+                </table>
+              </td>
+              <td style="padding: 10px; width: 25%;">
+                <table width="100%" style="background: #fffbeb; border-left: 6px solid #f59e0b; border-radius: 12px;">
+                  <tr><td align="center" style="padding: 20px;">
+                    <div style="font-size: 22px; font-weight: bold; color: #f59e0b;">{{SKIPPED}}</div>
+                    <div style="font-size: 13px; color: #92400e;">⏭️ Skipped</div>
+                  </td></tr>
+                </table>
+              </td>
+              <td style="padding: 10px; width: 25%;">
+                <table width="100%" style="background: #eef2ff; border-left: 6px solid #6366f1; border-radius: 12px;">
+                  <tr><td align="center" style="padding: 20px;">
+                    <div style="font-size: 22px; font-weight: bold; color: #6366f1;">{{TOTAL}}</div>
+                    <div style="font-size: 13px; color: #4338ca;">📄 Total</div>
+                  </td></tr>
+                </table>
               </td>
             </tr>
           </table>
@@ -74,86 +159,22 @@
       </tr>
     </table>
 
-    <!-- Test Execution Results -->
-		<table width="100%" cellpadding="0" cellspacing="0" style="background: #f9fafb; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); padding: 30px; margin: 20px 0; font-family: sans-serif;">
-		  <tr>
-		    <td>
-				<div style="display: flex; justify-content-end">
-		      <h2 style="margin: 0 0 20px 0; font-size: 18px; color: #111827;">
-		        <img src="https://img.icons8.com/color/24/000000/combo-chart--v1.png" style="vertical-align: middle; margin-right: 6px;" />
-		        Test Execution Results
-		      </h2>
-			  <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
-			             <span style="background: #10b981; color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 13px; white-space: nowrap;">
-			               {{SUCCESS_RATE}}% Success Rate
-			             </span>
-			           </div>
-					   </div>
+    <!-- Remaining content unchanged -->
 
-		      <!-- Progress Bar -->
-		      <div style="background: #e5e7eb; height: 20px; border-radius: 10px; width: 100%; margin: 20px 0; position: relative;">
-		        <div style="background: #10b981; height: 100%; width: {{SUCCESS_RATE}}%; border-radius: 10px;"></div>
-		      </div>
-
-
-		      <!-- Test Result Metrics -->
-		      <table width="100%" cellpadding="0" cellspacing="0" >
-		        <tr>
-		          <td style="padding: 10px; width: 25%;">
-		            <table width="100%" style="background: #ecfdf5; border-left: 6px solid #10b981; border-radius: 12px;">
-		              <tr><td align="center" style="padding: 20px;">
-		                <div style="font-size: 22px; font-weight: bold; color: #10b981;">{{PASSED}}</div>
-		                <div style="font-size: 13px; color: #047857;">✅ Passed</div>
-		              </td></tr>
-		            </table>
-		          </td>
-		          <td style="padding: 10px; width: 25%;">
-		            <table width="100%" style="background: #fef2f2; border-left: 6px solid #ef4444; border-radius: 12px;">
-		              <tr><td align="center" style="padding: 20px;">
-		                <div style="font-size: 22px; font-weight: bold; color: #ef4444;">{{FAILED}}</div>
-		                <div style="font-size: 13px; color: #b91c1c;">❌ Failed</div>
-		              </td></tr>
-		            </table>
-		          </td>
-		          <td style="padding: 10px; width: 25%;">
-		            <table width="100%" style="background: #fffbeb; border-left: 6px solid #f59e0b; border-radius: 12px;">
-		              <tr><td align="center" style="padding: 20px;">
-		                <div style="font-size: 22px; font-weight: bold; color: #f59e0b;">{{SKIPPED}}</div>
-		                <div style="font-size: 13px; color: #92400e;">⏭️ Skipped</div>
-		              </td></tr>
-		            </table>
-		          </td>
-		          <td style="padding: 10px; width: 25%;">
-		            <table width="100%" style="background: #eef2ff; border-left: 6px solid #6366f1; border-radius: 12px;">
-		              <tr><td align="center" style="padding: 20px;">
-		                <div style="font-size: 22px; font-weight: bold; color: #6366f1;">{{TOTAL}}</div>
-		                <div style="font-size: 13px; color: #4338ca;">📄 Total</div>
-		              </td></tr>
-		            </table>
-		          </td>
-		        </tr>
-		      </table>
-		    </td>
-		  </tr>
-		</table>
-
-
-
-	<!-- Recommendations -->
-	<div style="background: #fff7ed; border-left: 6px solid #f59e0b; padding: 20px; border-radius: 12px; margin: 4px 0 10px;">
-	  <h3 style="color: #92400e;">🎯 Action Items & Recommendations</h3>
-	  <ul style="color: #78350f; padding-left: 18px;">
-	    {{RECOMMENDATIONS}}
-	  </ul>
-	</div>
-
+    <!-- Recommendations -->
+    <div style="background: #fff7ed; border-left: 6px solid #f59e0b; padding: 20px; border-radius: 12px; margin: 20px 0;">
+      <h3 style="color: #92400e;">🎯 Action Items & Recommendations</h3>
+      <ul style="color: #78350f; padding-left: 18px;">
+        {{RECOMMENDATIONS}}
+      </ul>
+    </div>
 
     <!-- Trend Analysis -->
     <div style="background: #f0f9ff; border-left: 6px solid #3b82f6; padding: 20px; border-radius: 12px;">
       <h3 style="color: #0369a1;">📈 Trend Analysis</h3>
       <p>Your test suite shows strong stability with a {{SUCCESS_RATE}}% success rate.
          The number of failures ({{FAILED}}) indicates well-maintained test scenarios.
-         Focus on addressing the any failed tests to achieve your quality goals.</p>
+         Focus on addressing any failed tests to meet your quality goals.</p>
       <div style="background: #e0f2fe; padding: 10px; border-radius: 6px; margin-top: 10px; color: #075985;">
         <strong>💡 Pro Tip:</strong> Consider implementing test result trending over time to identify patterns and prevent regression in your automation suite.
       </div>
@@ -164,16 +185,11 @@
       For detailed test logs and failure analysis, please refer to the complete HTML report.<br>
       Questions or concerns? Feel free to reach out to our team.<br>
       <strong style="color: #4f46e5;">Team QA - StratApps</strong><br>
-
-      <!-- Light Purple Bar: Generated On -->
-      <table width="100%" cellpadding="0" cellspacing="0" style="background: #ede9fe; border-radius: 12px; font-family: sans-serif;">
-        <tr>
-          <td style="padding: 10px 20px; color: #7c3aed; font-size: 13px; font-weight: bold;">
-            Generated on {{EXECUTION_TIME}}
-          </td>
-        </tr>
-      </table>
+      <div style="background: #ede9fe; border-radius: 12px; padding: 10px; margin-top: 10px; color: #7c3aed;">
+       <strong>Generated on {{EXECUTION_TIME}}</strong>
+      </div>
     </div>
+
   </div>
 </body>
 </html>
