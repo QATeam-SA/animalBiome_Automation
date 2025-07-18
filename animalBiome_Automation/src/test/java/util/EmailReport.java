@@ -18,7 +18,7 @@ public class EmailReport {
 	public static void sendReportEmail(int passed, int failed, int skipped, String accountType) {
         final String senderEmail = "qateamstratapps@gmail.com";
         final String senderPassword = "uuus patl eysl ysne";
-        final String recipientEmail = "vjasmitha@stratapps.com,bgrace@stratapps.com,klakshmansai@stratapps.com";
+        final String recipientEmail = "nooruddin@stratapps.com,banoj@stratapps.com,vjasmitha@stratapps.com,bgrace@stratapps.com,klakshmansai@stratapps.com";
 
         int total = passed + failed + skipped;
         double successRate = total > 0 ? ((double) passed / total) * 100 : 0;
