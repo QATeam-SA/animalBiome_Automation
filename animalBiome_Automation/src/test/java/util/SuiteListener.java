@@ -22,8 +22,10 @@ public class SuiteListener implements ISuiteListener {
             failed += context.getFailedTests().size();
             skipped += context.getSkippedTests().size();
         }
+    	String suiteName = suite.getName(); // could be "user", "vet", etc.
+        String accountType = suiteName.equals("vet") ? "🩺 Vet" : "👤 User "; // we can customized the logic based on our requirements
         System.out.println("Test Suite Execution Finished: " + suite.getName());
         ExtentManager.flushReports();
-        EmailReport.sendReportEmail(passed, failed, skipped);
+        EmailReport.sendReportEmail(passed, failed, skipped, accountType);
     }
 }
