@@ -13,7 +13,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import base.ExcelUtils;
@@ -276,6 +278,7 @@ public class Cat_Img_VetDetails {
 					Thread.sleep(1000);
 				}
 			}
+			Thread.sleep(4000);
 			List<WebElement> severity = driver.findElements(By.xpath(prop.getProperty("j_Severity")));
 			for (WebElement checkbox : severity) 
 			{
@@ -284,20 +287,32 @@ public class Cat_Img_VetDetails {
 					checkbox.click();
 				}
 			}
+			Thread.sleep(3000);
 			List<WebElement> frequency = driver.findElements(By.xpath(prop.getProperty("j_Frequency")));
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			for (WebElement checkbox : frequency) 
 			{
+				wait.until(ExpectedConditions.elementToBeClickable(checkbox));
+				
 				if (checkbox.getTagName().equals("select")) 
 				{
 					Select s1 = new Select(checkbox);
 					if (!s1.isMultiple() && !s1.getFirstSelectedOption().getText().equals("Desired Option")) 
 					{
-						s1.selectByIndex(3);
+						s1.selectByIndex(1);
+						Thread.sleep(1000);
+					}
+				}
+				
+				else if (checkbox.getTagName().equals("input") && checkbox.getAttribute("type").equals("checkbox")) {
+					// Ensure the checkbox is enabled
+					if (checkbox.isEnabled() && !checkbox.isSelected()) {
+						checkbox.click(); // Click if enabled and not selected
 						Thread.sleep(1000);
 					}
 				}
 			}
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 			driver.findElement(By.xpath(prop.getProperty("j_Sympdescription"))).sendKeys("All Symptoms are selected.");
 			Thread.sleep(1000);
 			jse.executeScript("window.scrollBy(0,100)");

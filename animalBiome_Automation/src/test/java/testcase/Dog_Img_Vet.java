@@ -46,11 +46,11 @@ public class Dog_Img_Vet {
 		logger.info("***Started adding dog****");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("G_AddPet"))).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_DogButton"))).click();
 		Thread.sleep(3000);
-		/* driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click(); */
-		Thread.sleep(5000);
+		/* driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click(); 
+		Thread.sleep(3000);*/
 		/*
 		 * Robot robot = new Robot(); robot.delay(5000); StringSelection select = new
 		 * StringSelection(prop.getProperty("G_UploadImage"));
@@ -72,9 +72,10 @@ public class Dog_Img_Vet {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");
 		driver.findElement(By.xpath(prop.getProperty("G_ImageSubmit"))).click();
-		Thread.sleep(2000);
-		js.executeScript("window.scrollBy(0,600)");
-		Thread.sleep(3000);
+		Thread.sleep(5000);
+		/*
+		 * js.executeScript("window.scrollBy(0,600)"); Thread.sleep(3000);
+		 */
 		driver.findElement(By.xpath(prop.getProperty("G_SelectBreed"))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_BreedName"))).click();
@@ -117,14 +118,14 @@ public class Dog_Img_Vet {
 		s.selectByVisibleText("Australia");
 		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("G_AddPet_Nextbutton"))).click();
-		logger.info("***Add Pet Details successfully****");
+		logger.info("***Added Pet Details successfully****");
 		return js;
 
 	}
 
 	private void PetHealthdetails(JavascriptExecutor js) throws InterruptedException {
 
-		logger.info("****Started added user dog health details****");
+		logger.info("****Started adding user dog health details****");
 
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Antibiotics"))).click();
@@ -270,12 +271,14 @@ public class Dog_Img_Vet {
 				Thread.sleep(1000);
 			}
 		}
+		Thread.sleep(2000);
 		List<WebElement> severity = driver.findElements(By.xpath(prop.getProperty("G_Severity")));
 		for (WebElement checkbox : severity) {
 			if (!checkbox.isSelected()) {
 				checkbox.click();
 			}
 		}
+		Thread.sleep(2000);
 		List<WebElement> frequency = driver.findElements(By.xpath(prop.getProperty("G_Frequency")));
 		for (WebElement checkbox : frequency) 
 		{
@@ -301,7 +304,7 @@ public class Dog_Img_Vet {
 	
 	private void AddVetdetails(JavascriptExecutor js) throws InterruptedException {
 
-		logger.info("****Started added Vet details****");
+		logger.info("****Started adding Vet details****");
 		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,200)");
 		driver.findElement(By.xpath(prop.getProperty("G_AddVeterinarian"))).click();

@@ -37,7 +37,7 @@ public class Edit_DogDetails {
 	private void EditDetails(JavascriptExecutor js) throws InterruptedException {
 		
 		Thread.sleep(7000);
-		driver.findElement(By.xpath(prop.getProperty("G_DogSearch"))).sendKeys("Pint");
+		driver.findElement(By.xpath(prop.getProperty("G_DogSearch"))).sendKeys("Athena");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		driver.findElement(By.cssSelector(prop.getProperty("G_SearchButton"))).click();
 		Thread.sleep(10000);

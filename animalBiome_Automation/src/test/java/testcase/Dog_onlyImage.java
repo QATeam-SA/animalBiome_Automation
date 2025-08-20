@@ -42,10 +42,11 @@ public class Dog_onlyImage {
 		logger.info("***Started adding dog with image****");
 		Thread.sleep(10000);
 		driver.findElement(By.xpath(prop.getProperty("G_AddPet"))).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_DogButton"))).click();
-		//driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
+		/* driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click(); 
+		Thread.sleep(5000);*/
 		/*
 		 * Robot robot = new Robot(); robot.delay(5000); StringSelection select = new
 		 * StringSelection(prop.getProperty("G_UploadImage"));

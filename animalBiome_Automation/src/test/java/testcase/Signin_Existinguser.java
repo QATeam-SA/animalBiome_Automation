@@ -13,23 +13,24 @@ import base.PropertiesFile;
 
 public class Signin_Existinguser {
 	WebDriver driver = Instance.getInstance();
-	 Properties prop = PropertiesFile.readPropertyFile("Signin_Existinguser.properties");
-	 Logger logger = LogManager.getLogger(Signin_Existinguser.class);
+	Properties prop = PropertiesFile.readPropertyFile("Signin_Existinguser.properties");
+	Logger logger = LogManager.getLogger(Signin_Existinguser.class);
 
-	@Test(priority=2, enabled=true)
+	@Test(priority = 2, enabled = true)
 	public void Login() throws InterruptedException {
 		driver.manage().window().maximize();
 		Thread.sleep(3000);
 		driver.get(prop.getProperty("baseURL"));
-		Thread.sleep(5000);
-		driver.switchTo(); //switching to pop-up
-		driver.findElement(By.xpath(prop.getProperty("Accesscode"))).sendKeys(prop.getProperty("Authkey")); 
+		Thread.sleep(3000);
+		driver.switchTo(); // switching to pop-up
+		driver.findElement(By.xpath(prop.getProperty("Accesscode"))).sendKeys(prop.getProperty("Authkey"));
 		Thread.sleep(4000);
 		driver.findElement(By.xpath(prop.getProperty("Acessbutton"))).click();
-		Thread.sleep(4000); 
+		Thread.sleep(3000);
 		System.out.println("Accessed successfully");
 		logger.info("***** pop up Accessed successfully *******");
 		Thread.sleep(2000);
+
 		driver.findElement(By.xpath(prop.getProperty("N_SignInManuallyInstead"))).click();
 		Thread.sleep(1500);
 
@@ -41,5 +42,5 @@ public class Signin_Existinguser {
 		Thread.sleep(4000);
 		System.out.println("Login Sucessfully with existingUser");
 		logger.info("***** Log in successfully *******");
-}
+	}
 }

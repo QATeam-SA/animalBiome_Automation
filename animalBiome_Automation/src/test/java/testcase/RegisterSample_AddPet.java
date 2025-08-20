@@ -29,7 +29,7 @@ public class RegisterSample_AddPet {
 	public void AddingDogThroughSampleRegistration() throws InterruptedException, AWTException, IOException {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("N_register_sample"))).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		logger.info("***** Started adding pet *******");
 		driver.findElement(By.xpath(prop.getProperty("N_addpet"))).click();
 		/*
@@ -55,7 +55,7 @@ public class RegisterSample_AddPet {
 		Actions act = new Actions(driver);
 		WebElement ele = driver.findElement(By.xpath(prop.getProperty("NDrag_&_drop")));
 		Thread.sleep(2000);
-		act.dragAndDropBy(ele, 30, 60).perform();
+		act.dragAndDropBy(ele, 10, 10).perform();
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)", "");
@@ -94,9 +94,9 @@ public class RegisterSample_AddPet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_city"))).sendKeys(prop.getProperty("N_Enter_City"));
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(prop.getProperty("N_postal_Code"))).sendKeys(prop.getProperty("N_Postal_Code"));
-		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_state"))).sendKeys(prop.getProperty("N_Enter_State"));
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(prop.getProperty("N_postal_Code"))).sendKeys(prop.getProperty("N_Postal_Code"));
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("N_MP_Next"))).click();
 		logger.info("***** My Pet details has been added successfully *******");
@@ -118,7 +118,7 @@ public class RegisterSample_AddPet {
 
 		js.executeScript("window.scrollBy(0,100)", "");
 		Thread.sleep(1000);
-		driver.findElement(By.xpath(prop.getProperty("N_B_condition"))).click();
+		driver.findElement(By.xpath(prop.getProperty("N_Body_condition"))).click();
 		Thread.sleep(1000);
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(2000);
