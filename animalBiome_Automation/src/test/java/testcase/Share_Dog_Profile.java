@@ -55,9 +55,9 @@ public class Share_Dog_Profile {
 		driver.findElement(By.xpath(prop.getProperty("G_UpdateProfile"))).click();
 		Thread.sleep(7000);
 		driver.findElement(By.xpath(prop.getProperty("G_SearchPet"))).sendKeys("chirag");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Search"))).click();
-		Thread.sleep(10000);
+		Thread.sleep(7000);
 		WebElement flip = driver.findElement(By.xpath(prop.getProperty("G_Flip")));
 		Actions action = new Actions(driver);
 		action.moveToElement(flip).perform();

@@ -37,6 +37,7 @@ public class Edit_CatDetails {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("j_antibiotics_amoxicillin"))).click();
 		jse.executeScript("window.scrollBy(0,200)");
+		Thread.sleep(1500);
 		driver.findElement(By.xpath(prop.getProperty("j_antibiotics_metronidazole"))).click();
 		Thread.sleep(2000);
 		jse.executeScript("window.scrollBy(0,500)");
