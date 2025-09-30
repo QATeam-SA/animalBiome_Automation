@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite parallel="false" name="Suite">
+  <test thread-count="5" name="Vet_Signin_Existinguser" enabled="true">
+		<classes>
+			<class name="testcase.Vet_Signin_Existinguser" />
+		</classes>
+	</test>
+	
+	<test thread-count="5" name="Vet_Add_Others_1" enabled="true">
+		<classes>
+			<class name="testcase.VetOthers_Withimg_ClientDetails" />
+		</classes>
+	</test>
+	
+	<test thread-count="5" name="View_All_Reports_2" enabled="false">
+		<classes>
+			<class name="testcase.VetOthers_View_All_Reports" />
+		</classes>
+	</test>
+	
+	<test thread-count="5" name="Share_others_patient_profile_4" enabled="false">
+		<classes>
+			<class name="testcase.VetOthers_share_patient_profile_public"/>
+			<class name="testcase.VetOthers_Share_Patient_Profile_Private" />
+		</classes>
+	</test>
+	
+	<test thread-count="5" name="Home_Page[Dashboard]_7" enabled="false">
+		<classes>
+			<class name="testcase.VetUser_Others_Patientsearchbar" />
+			<class name="testcase.VetOthers_List_Grid_Views" />
+			<class name="testcase.VetOthers_Pagination_MyPatient" />
+			<class name="testcase.VetUser_Others_ReportSearchbar" />
+			<class name="testcase.VetOthers_Pagination_MbReports" />
+		</classes>
+	</test>
+	
+	<test thread-count="5" name="Opening_reports_8" enabled="false">
+		<classes>
+			<class name="testcase.VetUser_Others_OpeningReports" />
+		</classes>
+	</test>
+</suite> 

@@ -18,5 +18,6 @@ Sheep=64
 Cutie=88
 Milo=108
 Onyx=109
+Jersey=17
 scout=77
 pony=78

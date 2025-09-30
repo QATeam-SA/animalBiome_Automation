@@ -1,0 +1,78 @@
+package testcase;
+
+import java.util.Properties;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import base.Instance;
+import base.PropertiesFile;
+
+public class VetUser_Others_OpeningReports {
+	Logger logger = LogManager.getLogger(VetUser_Others_OpeningReports.class);
+	WebDriver driver = Instance.getInstance();
+	Properties prop = PropertiesFile.readPropertyFile("VetUser_Others_OpeningReports.properties");
+	
+	@Test(priority=14,enabled=true)
+	public void OpeningReportsForOthers() throws InterruptedException {
+		Thread.sleep(5000);
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		Thread.sleep(3000);
+		jse.executeScript("window.scrollBy(0,700)");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(prop.getProperty("j_mcbrpt_searchbar"))).sendKeys("HRHUTA");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath(prop.getProperty("j_mcbrpt_searchbtn"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(prop.getProperty("j_rprt_click"))).click();
+		Thread.sleep(2000);
+		jse.executeScript("window.scrollBy(0,-700)");
+		Thread.sleep(2000);
+		long lastHeight = (long) jse.executeScript("return document.body.scrollHeight");
+
+		while (true) {
+		    jse.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		    Thread.sleep(3000); // Wait for content to load
+
+		    long newHeight = (long) jse.executeScript("return document.body.scrollHeight");
+		    if (newHeight == lastHeight) 
+		    {
+		        break;
+		    }
+		    lastHeight = newHeight;
+		}
+		jse.executeScript("window.scrollTo(document.body.scrollHeight, 0)");
+		Thread.sleep(5000);
+		WebElement scrollableDiv = driver.findElement(By.xpath("//div[@class=\"col-2 col-sm-2 col-md-2 col-lg-2 p-0 left_scrollBar hidden-xs ng-tns-c2683479643-0 ng-star-inserted\"]"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		 // Scroll down inside the element by 300 pixels
+		js.executeScript("arguments[0].scrollTop = arguments[0].scrollTop + 300;",scrollableDiv); 
+		Thread.sleep(2000); 
+        driver.findElement(By.xpath(prop.getProperty("j_reg_details"))).click();
+		Thread.sleep(3000);
+		jse.executeScript("window.scrollBy(0,700)");
+		Thread.sleep(3000);
+		jse.executeScript("window.scrollBy(0,-700)");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(prop.getProperty("j_share_report"))).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(prop.getProperty("j_copylink"))).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(prop.getProperty("j_close"))).click();
+		Thread.sleep(3000);
+		/*
+		 * driver.findElement(By.xpath(prop.getProperty("j_schedulecall"))).click();
+		 * Thread.sleep(5000); jse.executeScript("window.scrollBy(0,700)");
+		 * Thread.sleep(3000); jse.executeScript("window.scrollBy(0,-700)");
+		 * Thread.sleep(3000); driver.navigate().back(); Thread.sleep(2000);
+		 * jse.executeScript("window.scrollBy(0,-100)"); Thread.sleep(2000);
+		 */
+		driver.findElement(By.xpath(prop.getProperty("j_ab_logo"))).click();
+		logger.info("Opening Report is successfull");
+		}
+}
