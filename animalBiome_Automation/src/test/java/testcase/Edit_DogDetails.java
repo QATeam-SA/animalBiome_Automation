@@ -41,7 +41,6 @@ public class Edit_DogDetails {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
 		driver.findElement(By.cssSelector(prop.getProperty("G_SearchButton"))).click();
 		Thread.sleep(10000);
-
 		WebElement mh = driver.findElement(By.xpath(prop.getProperty("G_Mousehover")));
 		Actions action = new Actions(driver);
 		action.moveToElement(mh).perform();
@@ -53,11 +52,17 @@ public class Edit_DogDetails {
 		driver.findElement(By.xpath(prop.getProperty("G_EditPet"))).click();
 		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,500)");
-		driver.findElement(By.xpath(prop.getProperty("G_AddPet_Nextbutton"))).click();
+		WebElement nextbtn = driver.findElement(By.xpath(prop.getProperty("G_AddPet_Nextbutton")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextbtn);
+		Thread.sleep(1000);
+		nextbtn.click();
 		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,800)");
-		driver.findElement(By.xpath(prop.getProperty("G_PetHealth_Nextbutton"))).click();
-		Thread.sleep(3000);
+		WebElement nextbtn1 = driver.findElement(By.xpath(prop.getProperty("G_PetHealth_Nextbutton")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextbtn1);
+		Thread.sleep(1000);
+		nextbtn1.click();
+		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,400)");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Complete"))).click();
@@ -79,20 +84,24 @@ public class Edit_DogDetails {
 		Actions action = new Actions(driver);
 		action.moveToElement(mh).perform();
 		Thread.sleep(2000);
-		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 		WebElement view = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("G_EditButton"))));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", view);
 		Thread.sleep(7000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,500)");
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath(prop.getProperty("G_AddPet_Nextbutton"))).click();
-		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,800)");
-		driver.findElement(By.xpath(prop.getProperty("G_PetHealth_Nextbutton"))).click();
 		Thread.sleep(3000);
+		WebElement nextbtn = driver.findElement(By.xpath(prop.getProperty("G_AddPet_Nextbutton")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextbtn);
+		Thread.sleep(1000);
+		nextbtn.click();
+		Thread.sleep(2000);
+		js.executeScript("window.scrollBy(0,900)");	
+		WebElement nextbtn1 = driver.findElement(By.xpath(prop.getProperty("G_PetHealth_Nextbutton")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextbtn1);
+		Thread.sleep(1000);
+		nextbtn1.click();
+		Thread.sleep(2000);
 		js.executeScript("window.scrollBy(0,400)");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Complete"))).click();

@@ -1,4 +1,5 @@
 package testcase;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Properties;
@@ -10,7 +11,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import base.ExcelUtils;
@@ -22,7 +25,6 @@ public class Dog_Img_Vet {
 	WebDriver driver = Instance.getInstance();
 	Properties prop = PropertiesFile.readPropertyFile("Dog_Img_Vet.properties");
 	Logger logger = LogManager.getLogger(Dog_Img_Vet.class);
-
 
 	@Test(priority = 4, enabled = true)
 	public void AddingDogWithImgandVet() throws Exception {
@@ -45,14 +47,20 @@ public class Dog_Img_Vet {
 
 		logger.info("***Started adding dog****");
 		Thread.sleep(5000);
-		driver.findElement(By.xpath(prop.getProperty("G_AddPet"))).click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		WebElement addpet = driver.findElement(By.xpath(prop.getProperty("G_AddPet")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", addpet);
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("G_DogButton"))).click();
+		js.executeScript("window.scrollBy(0,200)");
 		Thread.sleep(3000);
-		/* driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click(); 
-		Thread.sleep(3000);*/
+		WebElement element = driver.findElement(By.xpath(prop.getProperty("G_DogButton")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		Thread.sleep(3000);
+
 		/*
-		 * Robot robot = new Robot(); robot.delay(5000); StringSelection select = new
+		 * driver.findElement(By.xpath(prop.getProperty("G_ProfileImage"))).click();
+		 * Thread.sleep(3000); Robot robot = new Robot(); robot.delay(5000);
+		 * StringSelection select = new
 		 * StringSelection(prop.getProperty("G_UploadImage"));
 		 * Toolkit.getDefaultToolkit().getSystemClipboard().setContents(select, null);
 		 * robot.keyPress(KeyEvent.VK_CONTROL); robot.keyPress(KeyEvent.VK_V);
@@ -61,7 +69,7 @@ public class Dog_Img_Vet {
 		 * robot.keyPress(KeyEvent.VK_ENTER); robot.keyRelease(KeyEvent.VK_ENTER);
 		 */
 		WebElement fileInput = driver.findElement(By.xpath(prop.getProperty("FileUploadInput")));
-        fileInput.sendKeys(prop.getProperty("G_UploadImage"));
+		fileInput.sendKeys(prop.getProperty("G_UploadImage"));
 		Thread.sleep(2000);
 		driver.switchTo();
 		Actions act = new Actions(driver);
@@ -69,14 +77,13 @@ public class Dog_Img_Vet {
 		Thread.sleep(2000);
 		act.dragAndDropBy(ele, 30, 40).perform();
 		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,500)");
 		driver.findElement(By.xpath(prop.getProperty("G_ImageSubmit"))).click();
 		Thread.sleep(5000);
-		/*
-		 * js.executeScript("window.scrollBy(0,600)"); Thread.sleep(3000);
-		 */
-		driver.findElement(By.xpath(prop.getProperty("G_SelectBreed"))).click();
+		js.executeScript("window.scrollBy(0,600)");
+		Thread.sleep(3000);
+		WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait1.until(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("G_SelectBreed")))).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_BreedName"))).click();
 		Thread.sleep(1000);
@@ -130,110 +137,126 @@ public class Dog_Img_Vet {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Antibiotics"))).click();
 		Thread.sleep(2000);
+
 		List<WebElement> checkboxes = driver.findElements(By.xpath(prop.getProperty("G_AllAntibiotics")));
-		for (int i = 0; i < checkboxes.size(); i++) {
-
-			if (checkboxes.get(i).isDisplayed()) {
-
-				checkboxes.get(i).click();
+		for (WebElement checkbox : checkboxes) {
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
 		Thread.sleep(3000);
-		js.executeScript("window.scrollBy(0,700)");
-		driver.findElement(By.id(prop.getProperty("G_Bodyconditions"))).click();
+
+		WebElement bodycond = driver.findElement(By.xpath(prop.getProperty("G_Bodyconditions")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", bodycond);
+		Thread.sleep(1000);
+		bodycond.click();
+
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("G_Medications"))).click();
+		WebElement Med = driver.findElement(By.xpath(prop.getProperty("G_Medications")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Med);
+		Thread.sleep(500); // small pause
+		Med.click();
 		Thread.sleep(3000);
-		List<WebElement> allcheckboxes = driver.findElements(By.name(prop.getProperty("G_AllMedications")));
+
+		List<WebElement> allcheckboxes = driver.findElements(By.xpath(prop.getProperty("G_AllMedications")));
 		for (WebElement checkbox : allcheckboxes) {
-			if (!checkbox.isSelected()) {
-
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-		driver.findElement(By.xpath(prop.getProperty("G_cisapride/Propulsid"))).click();
+
+		WebElement medcond = driver.findElement(By.xpath(prop.getProperty("G_cisapride/Propulsid")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", medcond);
+		Thread.sleep(1000);
+		medcond.click();
+
 		Thread.sleep(1000);
 		js.executeScript("window.scrollBy(0,300)");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Supplements"))).click();
 		Thread.sleep(1500);
+
 		List<WebElement> suppcheck = driver.findElements(By.name(prop.getProperty("G_AllSupplements")));
 		for (WebElement checkbox : suppcheck) {
-			if (!checkbox.isSelected()) {
-
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+
+		Thread.sleep(1000);
 		List<WebElement> suppchild = driver.findElements(By.xpath(prop.getProperty("G_Fiberchild")));
 		for (WebElement checkbox : suppchild) {
-			if (!checkbox.isSelected()) {
-
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
+				Thread.sleep(1000);
 			}
 		}
-		Thread.sleep(1000);
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(2500);
-		driver.findElement(By.xpath(prop.getProperty("G_ABSupplements"))).click();
+
+		WebElement aBsupp = driver.findElement(By.xpath(prop.getProperty("G_ABSupplements")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", aBsupp);
+		Thread.sleep(1000);
+		aBsupp.click();
+
 		Thread.sleep(1000);
 		List<WebElement> absupp = driver.findElements(By.name(prop.getProperty("G_AllabSupplements")));
 		for (WebElement checkbox : absupp) {
-			if (!checkbox.isSelected()) {
-
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		List<WebElement> absuppchild = driver.findElements(By.xpath(prop.getProperty("G_ABsuppchild")));
 		for (WebElement checkbox : absuppchild) {
-			if (!checkbox.isSelected()) {
-
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
 		Thread.sleep(1000);
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(2500);
-		driver.findElement(By.xpath(prop.getProperty("G_PhysicalConditions"))).click();
+
+		WebElement phycond = driver.findElement(By.xpath(prop.getProperty("G_PhysicalConditions")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", phycond);
+		Thread.sleep(1000);
+		phycond.click();
+
 		Thread.sleep(1000);
 		List<WebElement> phycon = driver.findElements(By.name(prop.getProperty("G_AllPhycond")));
 		for (WebElement checkbox : phycon) {
-			if (!checkbox.isSelected()) {
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		List<WebElement> phyconchild = driver.findElements(By.xpath(prop.getProperty("G_PhyChild")));
 		for (WebElement checkbox : phyconchild) {
-			if (!checkbox.isSelected()) {
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		List<WebElement> phyconchild1 = driver.findElements(By.xpath(prop.getProperty("G_PhyChild1")));
 		for (WebElement checkbox : phyconchild1) {
-			if (!checkbox.isSelected()) {
-				checkbox.click();
+			if (checkbox.isDisplayed()) {
+				js.executeScript("arguments[0].click();", checkbox);
 				Thread.sleep(1000);
 			}
 		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-		List<WebElement> phyconchild2 = driver.findElements(By.xpath(prop.getProperty("G_PhyChild1")));
-		for (WebElement checkbox : phyconchild2) {
-			if (!checkbox.isSelected()) {
-				checkbox.click();
-				Thread.sleep(1000);
-			}
-		}
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement phyconchild2 = wait.until(ExpectedConditions
+				.refreshed(ExpectedConditions.elementToBeClickable(By.xpath(prop.getProperty("G_PhyChild1")))));
+		phyconchild2.click();
+
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_Phydescription"))).sendKeys("All Physical conditions selected");
 		Thread.sleep(2000);
@@ -280,13 +303,10 @@ public class Dog_Img_Vet {
 		}
 		Thread.sleep(2000);
 		List<WebElement> frequency = driver.findElements(By.xpath(prop.getProperty("G_Frequency")));
-		for (WebElement checkbox : frequency) 
-		{
-			if (checkbox.getTagName().equals("select")) 
-			{
+		for (WebElement checkbox : frequency) {
+			if (checkbox.getTagName().equals("select")) {
 				Select s1 = new Select(checkbox);
-				if (!s1.isMultiple() && !s1.getFirstSelectedOption().getText().equals("Desired Option")) 
-				{
+				if (!s1.isMultiple() && !s1.getFirstSelectedOption().getText().equals("Desired Option")) {
 					s1.selectByIndex(3);
 					Thread.sleep(1000);
 				}
@@ -301,7 +321,6 @@ public class Dog_Img_Vet {
 		logger.info("User dog added with health details");
 	}
 
-	
 	private void AddVetdetails(JavascriptExecutor js) throws InterruptedException {
 
 		logger.info("****Started adding Vet details****");

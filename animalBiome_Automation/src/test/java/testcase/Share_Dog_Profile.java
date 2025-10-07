@@ -50,10 +50,13 @@ public class Share_Dog_Profile {
 		driver.findElement(By.xpath(prop.getProperty("G_EditProfile"))).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_PrivateProfile"))).click();
-		logger.info("Profile updated as Private");
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("G_UpdateProfile"))).click();
-		Thread.sleep(7000);
+		WebElement updatebtn = driver.findElement(By.xpath(prop.getProperty("G_UpdateProfile")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", updatebtn);
+		Thread.sleep(1000);
+		updatebtn.click();
+		logger.info("Profile updated as Private");
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("G_SearchPet"))).sendKeys("chirag");
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(prop.getProperty("G_Search"))).click();
@@ -104,7 +107,10 @@ public class Share_Dog_Profile {
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(prop.getProperty("G_PublicProfile"))).click();
 		Thread.sleep(3000);
-		driver.findElement(By.xpath(prop.getProperty("G_UpdateProfile"))).click();
+		WebElement updatebtn = driver.findElement(By.xpath(prop.getProperty("G_UpdateProfile")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", updatebtn);
+		Thread.sleep(1000);
+		updatebtn.click();
 		logger.info("Profile updated as Public");
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(prop.getProperty("G_PetPortal"))).click();
